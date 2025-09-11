@@ -1,0 +1,75 @@
+body{
+  background:#000;
+  color:#fff;
+  font-family:"Roboto", Arial, sans-serif;
+  margin:0;
+}
+
+.main-auricular-detaill{
+  background:#111;
+  border-bottom: 2px solid #ff66cc; /* rosita */
+  padding:0;
+}
+
+.header-flex_4{
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between;
+  padding:16px 32px;
+}
+
+.header-flex_4 h1{
+  margin:0; 
+  font-family:"Orbitron", sans-serif;
+  color:#ff66cc; /* rosita */
+  font-size:2rem;
+}
+
+.detalle-producto{
+  display:grid;
+  grid-template-columns: 520px 1fr;  
+  gap:32px;
+  align-items:start;
+}
+
+.product-images{ 
+    display:flex; 
+    flex-direction:column; 
+    align-items:flex-start; 
+}
+
+#main-image{
+  width:450px; height:350px; 
+  object-fit:cover;
+  border:2px solid #ff66cc; /* rosita */
+  border-radius:8px; 
+  background:#222;
+  margin-bottom:12px;
+}
+
+.thumbnails{ 
+    display:flex; 
+    gap:80px; 
+    margin-left:80px; 
+}
+
+.thumbnails img{
+  width:80px; 
+  height:80px; 
+  object-fit:cover;
+  border:2px solid #ff66cc; /* rosita */
+  border-radius:6px; 
+  background:#222;
+  cursor:pointer; 
+  transition:border-color .2s;
+}
+
+.thumbnails img:hover{ 
+  border-color:#7a00ff; /* morado hover */
+}
+
+.product-info{ 
+  max-width:640px; 
+}
+
+

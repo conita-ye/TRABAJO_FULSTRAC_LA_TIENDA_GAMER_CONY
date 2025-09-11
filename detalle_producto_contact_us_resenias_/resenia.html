@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Tienda Gamer de Cony - Reseñas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Fondo degradado similar a imagen */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #f868d0, #9066ff, #3a22ff);
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Header con logo textual estilo gamer */
+    header.main-header {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 0;
+      box-shadow: 0 0 10px #f868d0;
+    }
+    header .header-flex {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #ff88e0;
+      text-shadow: 0 0 8px #f868d0;
+    }
+    nav a {
+      color: #f8bbea;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #ff5cce;
+    }
+    nav a + a {
+      margin-left: 3px;
+    }
+    main#reviews-page {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 40px 20px;
+      padding: 30px 30px 50px;
+      box-shadow: 0 0 20px #9100fc;
+    }
+    /* Sección resumen */
+    section.summary h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #ff77dd;
+      margin-bottom: 5px;
+      text-align: center;
+      text-shadow: 0 0 10px #ff5ccd;
+    }
+    .subheading {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #f8bbea;
+    }
+    .subheading .pill.product {
+      background: #ff66bbaa;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 0 6px #ff66bbcc;
+    }
+    .subheading .category a {
+      color: #d4a7ff;
+      text-decoration: none;
+    }
+    .subheading .category a:hover {
+      text-decoration: underline;
+      color: #ff77dd;
+    }
+    .score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      gap: 10px;
+      color: #fcc5ff;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    /* Estrellas estilo */
+    .stars {
+      display: inline-flex;
+      gap: 2px;
+    }
+    .star.full::before {
+      content: '★';
+      color: #ff55cc;
+      filter: drop-shadow(0 0 2px #ff77dd);
+      font-size: 1.5rem;
+    }
+    .star.half::before {
+      content: '☆';
+      position: relative;
+      color: #ff99ee;
+      font-size: 1.5rem;
+      background: linear-gradient(to right, #ff55cc 50%, transparent 50%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 2px #ff77dd);
+    }
+    .star.empty::before {
+      content: '☆';
+      color: #999;
+      font-size: 1.5rem;
+    }
+    /* Toolbar */
+    .toolbar {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .toolbar label {
+      font-weight: 600;
+      margin-right: 10px;
+      color: #f8bbea;
+    }
+    select#orden {
+      background: #57007d;
+      color: #eee;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ba00ff;
+      transition: background-color 0.3s ease;
+    }
+    select#orden:hover, select#orden:focus {
+      background: #7a00c9;
+    }
+    /* Lista de reseñas */
+    .review-list article.review {
+      background: #2e004d;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #8c00ffaa;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: #e3d3ff;
+      transition: transform 0.3s ease;
+    }
+    .review-list article.review:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #ff55cc;
+      color: #fff0f6;
+    }
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #f9b8f2;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .review-stars {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+      color: #ffb4de;
+    }
+    .review-stars .stars span.star.full::before {
+      font-size: 1.2rem;
+    }
+    .rating-number {
+      font-size: 1.1rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.35;
+      color: #e8d5fe;
+    }
+    /* Escribir reseña */
+    section.write {
+      background: #3d0f6b;
+      padding: 25px 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #bc26ff;
+    }
+    section.write h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #ff78d8;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: 0 0 13px #ff6edf;
+    }
+    form .row {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #fbbbfb;
+    }
+    input[type="text"], textarea {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      background-color: #6f33b0;
+      color: #f3d9ff;
+      box-shadow: inset 0 0 5px #ab47ff;
+      transition: background-color 0.3s ease;
+    }
+    input[type="text"]:focus, textarea:focus {
+      background-color: #894bbb;
+      outline: none;
+    }
+    /* Rating input style */
+    .rating-input {
+      display: flex;
+      gap: 5px;
+      justify-content: flex-start;
+    }
+    .rating-input input[type="radio"] {
+      display: none;
+    }
+    .rating-input label {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #b46aff;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .rating-input input[type="radio"]:checked ~ label,
+    .rating-input label:hover,
+    .rating-input label:hover ~ label {
+      color: #ff55cc;
+      filter: drop-shadow(0 0 5px #ff77dd);
+    }
+    button.btn-primary {
+      background: #ff52c4;
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1rem;
+      box-shadow: 0 0 10px #ff47c4;
+      transition: background-color 0.3s ease;
+    }
+    button.btn-primary:hover {
+      background: #ff2fa9;
+      box-shadow: 0 0 20px #ff2fa9;
+    }
+    /* Footer */
+    footer.site-footer {
+      margin-top: auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 12px 0;
+      width: 100%;
+      text-align: center;
+      color: #d097f7;
+      font-weight: 600;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: inset 0 1px 4px #af5ffc;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      header .header-flex {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+      nav a {
+        margin: 0 5px;
+      }
+      main#reviews-page {
+        padding: 20px 15px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <h1>La Tienda <span style="color:#ff55cc">Gamer</span> de <span style="color:#ff55cc">Cony</span></h1>
+      <nav>
+        <a href="home">Home</a>
+        <a href="productos">Productos</a>
+        <a href="nosotros">Nosotros</a>
+        <a href="blogs">Blogs</a>
+        <a href="contact_us.html">Contacto</a>
+        <a href="cart.html">Carrito (4)</a>
+      </nav>
+    </div>
+  </header>
+  <main id="reviews-page">
+    <section class="summary">
+      <h2>Reseñas</h2>
+      <p class="subheading">
+        Para: <span class="pill product">Controlador Inalámbrico Xbox Series X</span>
+        <span class="sep">•</span>
+        <span class="category">
+          <a href="productos">Accesorios</a> / <a href="controladores">Controladores</a>
+        </span>
+      </p>
+      <div class="score">
+        <span class="stars" aria-label="Valoración 4.5 de 5">
+          <span class="star full"></span>
+          <span class="star full"></span>
+          <span class="star full"></span>
+          <span class="star full"></span>
+          <span class="star half"></span>
+        </span>
+        <span class="rating-number">4.5</span>
+        <span class="count">(24 reseñas)</span>
+      </div>
+    </section>
+    <section class="toolbar">
+      <label for="orden">Ordenar por:</label>
+      <select id="orden">
+        <option>Más recientes</option>
+        <option>Mejor valoradas</option>
+        <option>Peor valoradas</option>
+      </select>
+    </section>
+    <section class="review-list">
+      <article class="review">
+        <header class="review-top">
+          <strong>María P.</strong>
+          <span class="date">12/08/2025</span>
+        </header>
+        <div class="review-stars">
+          <span class="stars">
+            <span class="star full"></span><span class="star full"></span>
+            <span class="star full"></span><span class="star full"></span>
+            <span class="star empty"></span>
+          </span>
+          <span class="rating-number">4.0</span>
+        </div>
+        <p>Excelente calidad, se siente sólido. La batería dura bastante y el agarre es cómodo.</p>
+      </article>
+      <article class="review">
+        <header class="review-top">
+          <strong>Juan S.</strong>
+          <span class="date">08/08/2025</span>
+        </header>
+        <div class="review-stars">
+          <span class="stars">
+            <span class="star full"></span><span class="star full"></span>
+            <span class="star full"></span><span class="star full"></span>
+            <span class="star half"></span>
+          </span>
+          <span class="rating-number">4.5</span>
+        </div>
+        <p>Llegó rápido, funciona perfecto. El cable podría ser un poco más largo.</p>
+      </article>
+      <article class="review">
+        <header class="review-top">
+          <strong>Camila R.</strong>
+          <span class="date">30/07/2025</span>
+        </header>
+        <div class="review-stars">
+          <span class="stars">
+            <span class="star full"></span><span class="star full"></span>
+            <span class="star full"></span><span class="star empty"></span>
+            <span class="star empty"></span>
+          </span>
+          <span class="rating-number">3.0</span>
+        </div>
+        <p>Buen producto por el precio, aunque el software es medio básico.</p>
+      </article>
+    </section>
+    <section class="write">
+      <h3>Escribe tu reseña</h3>
+      <form>
+        <div class="row">
+          <label for="name">Tu nombre</label>
+          <input id="name" type="text" placeholder="Ej: Ana G." />
+        </div>
+        <div class="row">
+          <label>Tu valoración</label>
+          <div class="rating-input" role="radiogroup" aria-label="Selecciona una valoración">
+            <input type="radio" id="r5" name="rating" value="5" />
+            <label for="r5" title="5 estrellas">★</label>
+            <input type="radio" id="r4" name="rating" value="4" />
+            <label for="r4" title="4 estrellas">★</label>
+            <input type="radio" id="r3" name="rating" value="3" />
+            <label for="r3" title="3 estrellas">★</label>
+            <input type="radio" id="r2" name="rating" value="2" />
+            <label for="r2" title="2 estrellas">★</label>
+            <input type="radio" id="r1" name="rating" value="1" />
+            <label for="r1" title="1 estrella">★</label>
+          </div>
+        </div>
+        <div class="row">
+          <label for="msg">Comentario</label>
+          <textarea id="msg" rows="4" placeholder="Cuéntanos tu experiencia..."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar reseña</button>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer">© 2025 Onetech</footer>
+</body>
+</html>

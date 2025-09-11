@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Tienda Gamer de Cony - Productos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --morado-oscuro: #6b21a8;
+      --morado: #9333ea;
+      --morado-claro: #c084fc;
+      --rosa: #f9a8d4;
+      --rosa-claro: #fbcfe8;
+      --fondo: #f3e8ff;
+      --texto: #4b0082;
+      --acento: #c084fc;
+    }
+
+    body {
+      background-color: var(--fondo);
+      color: var(--texto);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(135deg, var(--morado) 0%, var(--rosa) 100%);
+      box-shadow: 0 4px 12px rgba(107, 33, 168, 0.3);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: white !important;
+    }
+    .navbar-brand img {
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--rosa-claro) !important;
+      text-decoration: underline;
+    }
+    .btn-accent {
+      background: var(--acento);
+      color: var(--texto);
+      font-weight: 700;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+    .btn-accent:hover {
+      background: var(--morado);
+      color: white;
+    }
+    #cart-count {
+      font-size: 12px;
+      top: -8px;
+      right: -10px;
+    }
+
+    /* Cards de productos */
+    .gamer-card {
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(192, 132, 252, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      color: var(--morado-oscuro);
+    }
+    .gamer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(192, 132, 252, 0.5);
+    }
+    .card-title {
+      font-weight: 700;
+      color: var(--morado);
+    }
+    .text-accent {
+      color: var(--acento) !important;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--morado-oscuro) 0%, var(--morado) 100%);
+      color: white;
+      padding: 40px 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #d8b4fe;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+      color: #fbcfe8;
+    }
+
+    /* Botón volver arriba */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--acento);
+      color: var(--texto);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(192, 132, 252, 0.5);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      background: var(--morado);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/main/FOTO_CONITA_gamer.png" alt="Logo La Tienda Gamer de Cony" width="59" height="55" />
+        La Tienda Gamer de Cony
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Mostrar menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="main.html">Inicio</a></li>
+          <li class="nav-item active"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <a href="carrito.html" class="btn btn-accent btn-sm rounded-pill mr-3 position-relative">
+          🛒 Carrito
+          <span id="cart-count" class="badge badge-light text-dark position-absolute">0</span>
+        </a>
+
+        <div class="d-none d-lg-block">
+          <a href="login.html" class="text-white mx-2">Iniciar sesión</a>
+          <a href="register.html" class="text-white mx-2">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección principal de productos -->
+  <section class="productos-destacados py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 text-accent">Nuestros Productos</h2>
+      <div class="row">
+
+        <!-- JM001 - Catan -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/main/productos main/JM001 Juegos de Mesa Catan.webp" class="card-img-top" alt="Los Colonos de Catan" />
+            <div class="card-body">
+              <h5 class="card-title">JM001 - Catan</h5>
+              <p class="card-text"><strong>Los Colonos de Catan:</strong> Un clásico juego de estrategia donde los jugadores compiten por colonizar y
+expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en
+familia o con amigos.</p>
+              <p class="text-accent font-weight-bold">$29.990 CLP</p>
+              <a href="producto1.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- JM002 - Carcassonne -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/carcassonne.png" class="card-img-top" alt="Carcassonne" />
+            <div class="card-body">
+              <h5 class="card-title">JM002 - Carcassonne</h5>
+              <p class="card-text"><strong>Carcassonne:</strong> Un juego de colocación de fichas donde los jugadores construyen el paisaje
+alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de
+aprender.</p>
+              <p class="text-accent font-weight-bold">$24.990 CLP</p>
+              <a href="producto2.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AC001 - Controlador Xbox Series X -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/xboxseriesx.png" class="card-img-top" alt="Controlador Xbox Series X" />
+            <div class="card-body">
+              <h5 class="card-title">AC001 - Controlador Xbox Series X</h5>
+              <p class="card-text"><strong>Control inalámbrico:</strong> Ofrece una experiencia de juego cómoda con
+botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC.</p>
+              <p class="text-accent font-weight-bold">$59.990 CLP</p>
+              <a href="producto3.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AC002 - auriculare HyperX Cloud II -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/xboxseriess.png" class="card-img-top" alt="Auriculares HyperX Cloud II" />
+            <div class="card-body">
+              <h5 class="card-title">AC002 - HyperX Cloud II</h5>
+              <p class="card-text"><strong>Auriculares Gaming:</strong> Proporcionan un sonido envolvente de calidad con un
+micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad
+durante largas sesiones de juego.</p>
+              <p class="text-accent font-weight-bold">$79.990 CLP</p>
+              <a href="producto7.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CO001 - PlayStation 5 -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/OF_xboxseriess.png" class="card-img-top" alt="PlayStation 5" />
+            <div class="card-body">
+              <h5 class="card-title">CO001 - PlayStation 5</h5>
+              <p class="card-text"><strong>PS5:</strong> La consola de última generación de Sony, que ofrece gráficos
+impresionantes y tiempos de carga ultrarrápidos para una experiencia de juego inmersiva.</p>
+              <p class="text-accent font-weight-bold">$549.990 CLP</p>
+              <a href="producto4.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CG001 - PC Gamer ASUS ROG Strix -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/notebook.png" class="card-img-top" alt="PC Gamer ASUS ROG Strix" />
+            <div class="card-body">
+              <h5 class="card-title">CG001 - PC Gamer ASUS ROG Strix</h5>
+              <p class="card-text"><strong>ASUS ROG Strix:</strong>Un potente equipo diseñado para los gamers más exigentes,
+equipado con los últimos componentes para ofrecer un rendimiento excepcional en
+cualquier juego.</p>
+              <p class="text-accent font-weight-bold">$1.299.990 CLP</p>
+              <a href="producto5.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SG001 - Silla Gamer Secretlab Titan -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/main/productos main/SG001 Sillas Gamers Silla Gamer Secretlab Titan.webp" class="card-img-top" alt="Silla Gamer Secretlab Titan" />
+            <div class="card-body">
+              <h5 class="card-title">SG001 - Silla Gamer Secretlab Titan</h5>
+              <p class="card-text"><strong>Secretlab TITAN:</strong> Diseñada para el máximo confort, esta silla ofrece un soporte
+ergonómico y personalización ajustable para sesiones de juego prolongadas.</p>
+              <p class="text-accent font-weight-bold">$349.990 CLP</p>
+              <a href="producto6.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MS001 - Mouse Logitech G502 HERO -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/main/productos main/MS001 Mouse Mouse Gamer Logitech G502 HERO.webp" class="card-img-top" alt="Mouse Gamer Logitech G502 HERO" />
+            <div class="card-body">
+              <h5 class="card-title">MS001 - Mouse Gamer Logitech G502 HERO</h5>
+              <p class="card-text"><strong>Logitech G502:</strong> Con sensor de alta precisión y botones
+personalizables, este mouse es ideal para gamers que buscan un control preciso y
+personalización.</p>
+              <p class="text-accent font-weight-bold">$49.990 CLP</p>
+              <a href="producto9.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MP001 - Mousepad Razer Goliathus -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/mousepad.png" class="card-img-top" alt="Mousepad Razer Goliathus Extended Chroma" />
+            <div class="card-body">
+              <h5 class="card-title">MP001 - Mousepad Razer Goliathus Extended Chroma</h5>
+              <p class="card-text"><strong>Razer Goliathus:</strong> Ofrece un área de juego amplia con
+iluminación RGB personalizable, asegurando una superficie suave y uniforme para el
+movimiento del mouse.</p>
+              <p class="text-accent font-weight-bold">$29.990 CLP</p>
+              <a href="producto8.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PP001 - Polera Gamer 'Level-Up' -->
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card gamer-card h-100">
+            <img src="img/productos/625ed6fd-2336-4fe5-9e4e-31a5da9e0af2.png" class="card-img-top" alt="Polera Gamer 'Level-Up'" />
+            <div class="card-body">
+              <h5 class="card-title">PP001 - Polera Gamer 'Level-Up'</h5>
+              <p class="card-text"><strong>Polera Gamer:</strong> Una camiseta cómoda y estilizada, con la posibilidad de personalizarla con tu gamer tag o diseño favorito.</p>
+              <p class="text-accent font-weight-bold">$14.990 CLP</p>
+              <a href="producto10.html" class="btn btn-accent btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row pt-5">
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <a href="index.html" class="navbar-brand text-accent">
+            <h1 class="text-accent"><span class="text-white">LA TIENDA</span> GAMER DE CONY</h1>
+          </a>
+          <p><strong>Misión:</strong> Buscamos vender y tener todos los productos de juegos gamer para ustedes nuestros compradores leales no te quedes sin tu juegos de mesa  y los asesorios .</p>
+          <p><strong>Visión:</strong>  Nuesta vision es informarle detalladamnete lo que busca nustro usuario y tener una buena atencion al cliente ser eficientes y atentos en nuestros servicios  </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 2px;">Nuestros Servicios</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Proveedores</a></li>
+            <li><a href="#">Ubicación de bodega</a></li>
+            <li><a href="#">Armado de PC</a></li>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Testimonios</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 2px;">Contáctanos</h5>
+          <p><i class="fa fa-map-marker-alt mr-2"></i>Valparaíso, Av. Brasil, Duoc UC</p>
+          <p><i class="fa fa-phone-alt mr-2"></i>+56 9 3190 8354</p>
+          <p><i class="fa fa-envelope mr-2"></i>conitaye@tiendagamer.cl</p>
+          <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 2px;">Suscríbete</h6>
+          <div class="input-group">
+            <input type="email" class="form-control border-0" placeholder="Tu correo electrónico" />
+            <div class="input-group-append">
+              <button class="btn btn-accent">Enviar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row border-top pt-4 mt-4" style="border-color

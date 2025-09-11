@@ -1,0 +1,86 @@
+/* Estilos base */
+body {
+  background-color: #000; /* Fondo negro gamer */
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Colores de acento personalizados */
+.text-accent {
+  color: #ff66cc; /* Rosita neón */
+}
+
+.btn-accent {
+  background-color: #ff66cc; /* Rosita */
+  color: #000;
+  border: none;
+  transition: 0.3s ease;
+}
+.btn-accent:hover {
+  background-color: #7a00ff; /* Morado para hover */
+  color: #fff;
+}
+
+/* Sección de información tienda */
+.Informacion_tienda {
+  margin: 5%;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+/* Tarjetas de productos */
+.gamer-card {
+  background-color: #111; /* Negro profundo */
+  color: #fff;
+  border: 1px solid #ff66cc; /* borde rosita */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gamer-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #ff66cc; /* brillo rosita */
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Navegación */
+.navbar-dark .nav-link {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+.navbar-dark .nav-link:hover {
+  color: #ff66cc; /* rosita */
+}
+
+/* Carrusel */
+.gamer-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsivo (Mobile First) */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .form-inline {
+    justify-content: center;
+  }
+
+  .Informacion_tienda {
+    font-size: 1rem;
+  }
+
+  .gamer-card {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,60 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5%;
+  background: linear-gradient(135deg, #0d0d0d, #330033, #000000);
+  padding: 0;
+}
+
+/* Fondo gamer con tonos rosita y morado */
+.gradient-gamer {
+  background: linear-gradient(135deg, #0d0d0d, #330033, #4b004b);
+  min-height: 100vh;
+}
+
+/* Botón gamer con efecto neón rosita */
+.gamer-btn {
+  background: #ff66cc; /* rosita neón */
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.gamer-btn:hover {
+  background: #cc3399; /* morado oscuro */
+  box-shadow: 0 0 15px #ff66cc; /* brillo rosita */
+}
+
+/* Inputs oscuros con borde morado neón */
+.form-control {
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+}
+.form-control:focus {
+  background-color: #111;
+  color: #fff;
+  border-color: #ff66cc; /* rosita */
+  box-shadow: 0 0 10px #ff66cc;
+}
+
+/* Mensajes de alerta */
+.mensaje {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff66cc; /* rosita éxito */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.mensaje.error {
+  background-color: #cc3399; /* morado error */
+}
+
+
