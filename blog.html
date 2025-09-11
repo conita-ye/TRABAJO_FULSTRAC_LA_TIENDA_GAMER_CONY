@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - La Tienda Gamer de Cony</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffd6e7 0%, #e2f0ff 100%);
+            color: #5a5a5a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #ffc2d6, #bbd9ff);
+            padding: 20px 0;
+            border-bottom: 3px solid #ff85b3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff66a3, #809fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #ff66a3;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #ff66a3, #809fff);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff66a3;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff66a3, #809fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* Content Sections */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff66a3;
+            margin-bottom: 20px;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2 span {
+            margin-right: 10px;
+        }
+        
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .blog-card {
+            background: #f8f9ff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: linear-gradient(to right, #ff66a3, #809fff);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .blog-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #809fff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #ff66a3;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-widget h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #809fff;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 10px;
+        }
+        
+        .categories-list a {
+            color: #5a5a5a;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .categories-list a:hover {
+            color: #ff66a3;
+        }
+        
+        .categories-list span {
+            background: #ffd6e7;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        
+        .popular-posts {
+            list-style: none;
+        }
+        
+        .popular-post {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .popular-post img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .popular-post-content h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .popular-post-content span {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(to right, #ffc2d6, #bbd9ff);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .newsletter h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #5a5a5a;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .newsletter-form input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background: linear-gradient(to right, #ff66a3, #809fff);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #ffc2d6, #bbd9ff);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 3px solid #ff85b3;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            color: #ff66a3;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: #ff66a3;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">La Tienda Gamer de Cony</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blog.html" style="color: #ff66a3;">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li>
+                        <a href="carrito.html">
+                            <span class="cart-icon">🛒 <span class="cart-count">3</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Blog Gamer</h1>
+            <p>Descubre las últimas noticias, reviews y consejos sobre el mundo gaming</p>
+        </section>
+
+        <div class="content-with-sidebar" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+            <!-- Main Content -->
+            <div>
+                <!-- Featured Post -->
+                <section class="section">
+                    <h2><span>⭐</span>Artículo Destacado</h2>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/productos/catan.png" width="5" height="7" alt="Los Colonos de Catan - Estrategias para ganar">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">JUEGOS DE MESA</span>
+                            <h3 class="blog-title">Estrategias Avanzadas para Dominar Catan</h3>
+                            <p class="blog-excerpt">Descubre las mejores tácticas y consejos para convertirte en el señor indiscutible de la isla de Catan. Aprende a gestionar recursos, negociar con otros jugadores y planificar tu estrategia de expansión.</p>
+                            <div class="blog-meta">
+                                <span>Por: Cony Gamer • 15 Nov 2023</span>
+                                <a href="#" class="read-more">Leer más →</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Posts -->
+                <section class="section">
+                    <h2><span>📰</span>Artículos Recientes</h2>
+                    <div class="blog-grid">
+                        <!-- Post 1 -->
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dadca3dd-667e-426b-a6a7-e47fcf399ad6.png" alt="HyperX Cloud II - Review">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">REVIEW</span>
+                                <h3 class="blog-title">HyperX Cloud II: La Mejor Opción en Calidad-Precio</h3>
+                                <p class="blog-excerpt">Análisis detallado de los auriculares HyperX Cloud II. Te contamos por qué son los favoritos de la comunidad gamer y cómo mejoran tu experiencia de juego.</p>
+                                <div class="blog-meta">
+                                    <span>12 Nov 2023</span>
+                                    <a href="#" class="read-more">Leer más →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fb8e482c-8a7a-4039-8ed1-48b469b96f84.png" alt="PS5 vs Xbox Series X">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">COMPARATIVA</span>
+                                <h3 class="blog-title">PS5 vs Xbox Series X: ¿Cuál Elegir en 2023?</h3>
+                                <p class="blog-excerpt">Comparativa exhaustiva entre las dos consolas más potentes del mercado. Te ayudamos a decidir cuál se adapta mejor a tus necesidades de gaming.</p>
+                                <div class="blog-meta">
+                                    <span>8 Nov 2023</span>
+                                    <a href="#" class="read-more">Leer más →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Post 3 -->
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/91bdb32b-d3a3-4349-b7e2-70ef8c35b1d1.png" alt="Ergonomía en gaming">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">CONSEJOS</span>
+                                <h3 class="blog-title">5 Errores de Ergonomía que Arruinan tus Sesiones Gaming</h3>
+                                <p class="blog-excerpt">Aprende a configurar tu espacio de juego para evitar dolores y mejorar tu rendimiento. La postura correcta es clave para jugar por horas sin molestias.</p>
+                                <div class="blog-meta">
+                                    <span>5 Nov 2023</span>
+                                    <a href="#" class="read-more">Leer más →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Post 4 -->
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/652dd325-9964-472b-9fad-54ff37322353.png" alt="PC Gamer económico">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">GUÍAS</span>
+                                <h3 class="blog-title">Cómo Armar un PC Gamer Potente por Menos de $800.000</h3>
+                                <p class="blog-excerpt">Guía paso a paso para construir tu propia PC gaming sin gastar una fortuna. Te mostramos los componentes con mejor relación calidad-precio.</p>
+                                <div class="blog-meta">
+                                    <span>1 Nov 2023</span>
+                                    <a href="#" class="read-more">Leer más →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- About Widget -->
+                <section class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Sobre el Blog</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Bienvenido al blog oficial de La Tienda Gamer de Cony. Aquí encontrarás reviews, noticias, tutoriales y todo lo relacionado con el mundo gaming.</p>
+                        <img src="img/main/FOTO_CONITA_gamer.png" alt="Logo La Tienda Gamer de Cony" style="width: 100%; border-radius: 10px;">
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <h3>Categorías</h3>
+                        <ul class="categories-list">
+                            <li><a href="#">Noticias <span>12</span></a></li>
+                            <li><a href="#">Reviews <span>8</span></a></li>
+                            <li><a href="#">Juegos de Mesa <span>5</span></a></li>
+                            <li><a href="#">Consejos <span>7</span></a></li>
+                            <li><a href="#">Hardware <span>10</span></a></li>
+                            <li><a href="#">Eventos <span>3</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h3>Artículos Populares</h3>
+                        <ul class="popular-posts">
+                            <li class="popular-post">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34e8ed0f-4534-4495-94b7-07dfb2272850.png" alt="Mejores mouse gamers">
+                                <div class="popular-post-content">
+                                    <h4>Top 5 Mejores Mouse Gamers 2023</h4>
+                                    <span>25 Oct 2023</span>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cc0b5f77-7240-43d5-9b63-c83d66137642.png" alt="Carcassonne expansion">
+                                <div class="popular-post-content">
+                                    <h4>Expansiones de Carcassonne que Debes Probar</h4>
+                                    <span>18 Oct 2023</span>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/55ac0f11-4e86-482d-a8df-eb43a171e980.png" alt="Setup gaming económico">
+                                <div class="popular-post-content">
+                                    <h4>Cómo Crear un Setup Gaming con Presupuesto Limitado</h4>
+                                    <span>10 Oct 2023</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="newsletter">
+                        <h3>Suscríbete al Newsletter</h3>
+                        <p>Recibe las últimas noticias y ofertas exclusivas directamente en tu correo.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">Suscribirse</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 La Tienda Gamer de Cony - Todos los derechos reservados</p>
+            <div class="social-links">
+                <a href="#"><span>📱</span></a>
+                <a href="#"><span>💬</span></a>
+                <a href="#"><span>🎥</span></a>
+                <a href="#"><span>🐦</span></a>
+            </div>
+            <p>contacto@latiendagamerdecony.com | +56 9 1234 5678</p>
+            <p>Av. Brasil 2021, Valparaíso, Chile</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad para el formulario de newsletter
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`¡Gracias por suscribirte con el correo: ${email}! Te llegará pronto un email de confirmación.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
