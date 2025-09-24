@@ -1,75 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mousepad - Detalle Producto</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #ff66cc, #8000ff, #66d9ff);
-            color: #fff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mousepad - Detalle Producto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ff1fae, #4b0082, #1a0033); /* rosado → morado oscuro */
+      color: #fff;
+    }
 
-        /* HEADER */
-        .main-mousepad-detall {
-            background: rgba(128, 0, 255, 0.8);
-            border-bottom: 3px solid #ff66cc;
-            padding: 16px 32px;
-        }
+    /* HEADER */
+    .main-mousepad-detall {
+      background: rgba(75, 0, 130, 0.9); /* morado oscuro */
+      border-bottom: 3px solid #ff1fae; /* rosado neon */
+      padding: 16px 32px;
+    }
 
-        .header-flex_9 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .header-flex_9 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .header-flex_9 h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #ff66cc, #66d9ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .header-flex_9 h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff1fae, #b266ff); /* rosado → morado neon */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 8px #ff1fae, 0 0 12px #b266ff; /* efecto neon */
+    }
 
-        .header-flex_9 nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    .header-flex_9 nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
 
-        .header-flex_9 nav a:hover {
-            color: #ff66cc;
-        }
+    .header-flex_9 nav a:hover {
+      color: #ff1fae;
+      text-shadow: 0 0 8px #ff1fae;
+    }
 
-        /* Breadcrumb */
-        .breadcrumb_9 {
-            padding: 12px 32px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.4);
-            margin-bottom: 20px;
-        }
+    /* Breadcrumb */
+    .breadcrumb_9 {
+      padding: 12px 32px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
 
-        .breadcrumb_9 nav {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .breadcrumb_9 nav {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .breadcrumb_9 nav a {
-            color: #66d9ff;
-            text-decoration: none;
-        }
+    .breadcrumb_9 nav a {
+      color: #66d9ff; /* celestito */
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
 
-        .breadcrumb_9 nav a:last-of-type {
-            color: #ff99e6;
-        }
+    .breadcrumb_9 nav a:hover {
+      color: #ff1fae; /* rosado neon */
+      text-shadow: 0 0 8px #ff1fae;
+    }
 
-        /* Detalle Producto */
-        #mousepad-details {
-            max-width: 1200px;
+    .breadcrumb_9 nav a:last-of-type {
+      color: #ff99e6; /* rosado más suave */
+    }
+
+    /* Detalle Producto */
+    #mousepad-details {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(26, 0, 51, 0.8); /* morado oscuro translúcido */
+      border: 2px solid #ff1fae;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #b266ff, 0 0 25px #ff1fae; /* efecto neon */
+    }
+  </style>
+</head>
+<body>
+  <header class="main-mousepad-detall">
+    <div class="header-flex_9">
+      <h1>Mousepad Gamer</h1>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Productos</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb_9">
+    <nav>
+      <a href="#">Inicio</a> ›
+      <a href="#">Mousepads</a> ›
+      <a href="#">Detalle</a>
+    </nav>
+  </div>
+
+  <section id="mousepad-details">
+    <h2>Mousepad XXL RGB</h2>
+    <p>Mousepad gamer con iluminación RGB, superficie antideslizante y diseño ergonómico para largas sesiones de juego.</p>
+  </section>
+</body>
+</html>

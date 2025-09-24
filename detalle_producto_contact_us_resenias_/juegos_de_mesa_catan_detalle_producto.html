@@ -1,486 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catan - Detalle producto</title>
-    <link rel="stylesheet" href="styles.css/styles_juego_de_mesa_catan_detalle_producto.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Catan - Detalle Producto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
     <style>
-
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle at center, #f868d0, #9066ff, #3a22ff);
-            color: #eee;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        body{
+            margin:0;
+            font-family:'Roboto',sans-serif;
+            background: linear-gradient(135deg,#0d0d0d,#1a0033,#000000);
+            color:#fff;
         }
 
-        #catan-details {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
+        /* HEADER */
+        .main-detalle-producto{
+            background: rgba(20,0,40,0.8);
+            border-bottom:3px solid #ff66cc;
+            padding:16px 32px;
         }
-
-        .main-detalle-prducto_1 {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px 0;
-            box-shadow: 0 0 10px #f868d0;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .header-flex{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
         }
-
-        .header-flex {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
+        .header-flex h1{
+            font-family:'Orbitron',sans-serif;
+            font-size:28px;
+            font-weight:700;
+            background: linear-gradient(90deg,#ff66cc,#8000ff,#66d9ff);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
         }
-
-        .main-detalle-prducto_1 h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
-            color: #ff88e0;
-            text-shadow: 0 0 8px #f868d0;
-            margin: 0;
-        }
-
-        .main-detalle-prducto_1 nav a {
-            color: #f8bbea;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: 500;
+        .header-flex nav a{
+            color:#fff;
+            margin:0 10px;
+            text-decoration:none;
+            font-weight:500;
             transition: color 0.3s ease;
         }
-
-        .main-detalle-prducto_1 nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 5px #ff5cce;
+        .header-flex nav a:hover{
+            color:#ff66cc;
         }
 
-        .main-detalle-prducto_1 nav a + a:not(.separator) {
-            margin-left: 3px;
+        /* Breadcrumb */
+        .breadcrumb{
+            padding:12px 32px;
+            font-size:14px;
+            background: rgba(0,0,0,0.6);
+            border-radius:10px;
+            margin:20px 32px;
+            box-shadow:0 0 10px #9066ff;
+        }
+        .breadcrumb a{
+            color:#66d9ff;
+            text-decoration:none;
+        }
+        .breadcrumb span{
+            color:#ff99e6;
         }
 
-        .breadcrumb {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px #9066ff;
+        /* Detalle Producto */
+        .detalle-producto{
+            display:flex;
+            gap:40px;
+            padding:40px;
+            background: rgba(255,255,255,0.05);
+            border-radius:16px;
+            margin:32px;
+            box-shadow:0 0 15px rgba(255,102,204,0.5);
+        }
+        .product-images{
+            flex:1;
+        }
+        .product-images img{
+            width:100%;
+            border-radius:12px;
+            border:2px solid #66d9ff;
+            box-shadow:0 0 10px rgba(128,0,255,0.5);
+        }
+        .thumbnails{
+            margin-top:12px;
+            display:flex;
+            gap:10px;
+        }
+        .thumbnails img{
+            width:80px;
+            cursor:pointer;
+            border-radius:8px;
+            border:2px solid transparent;
+            transition:border 0.3s ease;
+        }
+        .thumbnails img:hover{
+            border:2px solid #ff66cc;
         }
 
-        .breadcrumb nav a {
-            color: #d4a7ff;
-            text-decoration: none;
-            margin: 0 5px;
+        .product-info{
+            flex:1;
+        }
+        .product-info h3{
+            font-size:24px;
+            margin-bottom:10px;
+            color:#ffccff;
+        }
+        .product-info p{
+            margin-bottom:20px;
         }
 
-        .breadcrumb nav a:hover {
-            color: #ff77dd;
-            text-shadow: 0 0 5px #ff5cce;
+        /* Botón */
+        .btn{
+            background: linear-gradient(90deg,#ff66cc,#8000ff,#66d9ff);
+            border:none;
+            color:#fff;
+            padding:10px 20px;
+            border-radius:12px;
+            font-size:16px;
+            cursor:pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .detalle-producto {
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 20px #9100fc;
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .product-images {
-            flex: 1;
-        }
-
-        #main-image {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #f868d0;
-        }
-
-        .thumbnails {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .thumbnails img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 5px #9066ff;
-        }
-
-        .thumbnails img:hover {
+        .btn:hover{
             transform: scale(1.05);
-            box-shadow: 0 0 10px #ff55cc;
-        }
-
-        .detalle-producto > div:nth-child(2) { /* El div con info del producto */
-            flex: 1;
-            color: #e3d3ff;
-        }
-
-        .detalle-producto h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
-            color: #ff77dd;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #ff5ccd;
-        }
-
-        .detalle-producto p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            color: #e8d5fe;
-            margin-bottom: 20px;
-        }
-
-        form[action="seleccionar_producto"] {
-            background: #3d0f6b;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px #bc26ff;
-            margin-bottom: 20px;
-        }
-
-        label[for="cantidad_product"] {
-            font-weight: 600;
-            color: #fbbbfb;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        select[name="cantidad_productos"] {
-            background: #6f33b0;
-            color: #f3d9ff;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            box-shadow: inset 0 0 5px #ab47ff;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-
-        select[name="cantidad_productos"]:focus {
-            background: #894bbb;
-            outline: none;
-        }
-
-        .btn-primary {
-            background: #ff52c4;
-            color: #fff;
-            border: none;
-            font-weight: 700;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1.1rem;
-            box-shadow: 0 0 10px #ff47c4;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .btn-primary:hover {
-            background: #ff2fa9;
-            box-shadow: 0 0 20px #ff2fa9;
+            box-shadow:0 0 12px rgba(255,102,204,0.8);
         }
 
         /* Reseñas */
-        .reviews {
-            background: #2e004d;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #8c00ffaa;
-            margin-top: 20px;
-            color: #e3d3ff;
+        .reviews{
+            margin-top:20px;
+            background: rgba(255,255,255,0.05);
+            padding:12px;
+            border-radius:12px;
+        }
+        .reviews-tab{
+            cursor:pointer;
+            font-weight:bold;
+            color:#66d9ff;
         }
 
-        .reviews summary {
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #f9b8f2;
-            font-family: 'Orbitron', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Productos relacionados */
+        .related-products-text{
+            margin:32px;
+            font-size:22px;
+            font-weight:bold;
+            color:#ffccff;
         }
-
-        .reviews summary:hover {
-            background: rgba(255, 85, 204, 0.1);
+        .related-products{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+            gap:20px;
+            margin:0 32px 40px 32px;
         }
-
-        /* Estrellas estilo neon */
-        .stars {
-            display: inline-flex;
-            gap: 2px;
-        }
-
-        .star.full::before {
-            content: '★';
-            color: #ff55cc;
-            filter: drop-shadow(0 0 2px #ff77dd);
-            font-size: 1.5rem;
-        }
-
-        .star.half::before {
-            content: '☆';
-            position: relative;
-            color: #ff99ee;
-            font-size: 1.5rem;
-            background: linear-gradient(to right, #ff55cc 50%, transparent 50%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 2px #ff77dd);
-        }
-
-        .rating-number {
-            font-size: 1.2rem;
-            color: #fcc5ff;
-            font-weight: 700;
-            margin-left: 10px;
-        }
-
-        .reviews-count {
-            color: #f8bbea;
-            margin-left: 10px;
-        }
-
-        .reviews-body {
-            padding: 0 20px 20px;
-        }
-
-        .review-item {
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 85, 204, 0.2);
-            color: #e8d5fe;
-        }
-
-        .review-item:last-child {
-            border-bottom: none;
-        }
-
-        .review-item strong {
-            color: #f9b8f2;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .review-item nav a {
-            color: #d4a7ff;
-            text-decoration: none;
-        }
-
-        .review-item nav a:hover {
-            color: #ff77dd;
-            text-shadow: 0 0 5px #ff5cce;
-        }
-
-        .related-products-text {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #ff77dd;
-            text-align: center;
-            margin: 30px 0 20px;
-            text-shadow: 0 0 10px #ff5ccd;
-        }
-
-        .related-products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .related-item {
-            background: #2e004d;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            flex: 1 1 200px;
-            box-shadow: 0 0 10px #8c00ffaa;
+        .related-item{
+            text-align:center;
+            background: rgba(128,0,255,0.3);
+            padding:16px;
+            border-radius:16px;
             transition: transform 0.3s ease;
         }
-
-        .related-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px #ff55cc;
+        .related-item img{
+            width:100%;
+            border-radius:12px;
+            margin-bottom:8px;
+        }
+        .related-item:hover{
+            transform:translateY(-5px);
+            background: rgba(255,102,204,0.4);
+        }
+        .related-desc{
+            font-size:14px;
+            color:#fff;
         }
 
-        .related-item img {
-            width: 100%;
-            max-width: 150px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #9066ff;
-            background: rgba(255, 255, 255, 0.1); /* Placeholder para src vacío */
-            height: 150px;
-            display: block;
-            margin: 0 auto 10px;
-        }
-
-        .related-desc {
-            color: #f9b8f2;
-            font-weight: 600;
-            margin-top: 10px;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .detalle-producto {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .header-flex {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .main-detalle-prducto_1 nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
+        @media(max-width:768px){
+            .detalle-producto{
+                flex-direction:column;
             }
         }
     </style>
 </head>
 <body>
 <div id="catan-details">
-    <header class="main-detalle-prducto_1">
+    <!-- HEADER -->
+    <header class="main-detalle-producto">
         <div class="header-flex">
-            <h1>La Tienda Gamer de cony</h1>
+            <h1>La Tienda Gamer de Cony</h1>
             <nav>
-                <a href="home">Home</a>
-                <a>|</a>
-                <a href="productos">Productos</a>
-                <a>|</a>
-                <a href="nosotros">Nosotros</a>
-                <a>|</a>
-                <a href="blogs">Blogs</a>
-                <a>|</a>
-                <a href="contact_us.html">Contacto</a>
+                <a href="home">Home</a> |
+                <a href="productos">Productos</a> |
+                <a href="nosotros">Nosotros</a> |
+                <a href="blogs">Blogs</a> |
+                <a href="contact_us.html">Contacto</a> |
                 <a href="cart.html">Cart(4)</a>
             </nav>
         </div>
     </header>
+
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <header>
-            <nav>
-                <a href="home">Home</a>
-                <a>></a>
-                <a href="category">Juegos de Mesa</a>
-                <a>></a>
-                <a>Catan</a>
-            </nav>
-        </header>
+        <a href="home">Home</a> &gt;
+        <a href="category">Juegos de Mesa</a> &gt;
+        <span>Catan</span>
     </div>
+
+    <!-- Detalle Producto -->
     <div class="detalle-producto">
         <div class="product-images">
-            <img id="main-image" src="img1.jpg" alt="Imagen_grande_izquierda">
+            <img id="main-image" src="productos/JM001 Juegos de Mesa Catan.webp" height="765" width="800"/>
             <div class="thumbnails">
-                <img src="img1.jpg" alt="Miniatura 1" onclick="showImage('img1.jpg')">
-                <img src="img2.jpg" alt="Miniatura 2" onclick="showImage('img2.jpg')">
-                <img src="img3.jpg" alt="Miniatura 3" onclick="showImage('img3.jpg')">
             </div>
         </div>
-        <div>
-            <h3>Catan $29.990 CLP</h3>
-            <p>Un clásico juego de estrategia donde los jugadores compiten por colonizar y
-                expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en
-                familia o con amigos.
-            </p>
+        <div class="product-info">
+            <h3>Catan - Juego de Mesa $34.990 CLP</h3>
+            <p>Juego de mesa clásico donde construyes, negocias y conquistas territorios. Ideal para disfrutar en familia o con amigos y desarrollar estrategias y habilidades sociales.</p>
+
             <form action="seleccionar_producto">
                 <label for="cantidad_product">Cantidad:</label>
-                <select name="cantidad_productos">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                <select id="cantidad_product" name="cantidad_productos">
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                 </select>
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+                <button type="submit" class="btn">Añadir al carrito</button>
             </form>
-            <!-- Reseñas -->
+
             <details class="reviews">
                 <summary class="reviews-tab">
-                    <span class="stars" aria-label="Valoración 4.5 de 5">
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star half"></span>
-                    </span>
-                    <span class="rating-number">4.5</span>
-                    <span class="reviews-count">(24 reseñas)</span>
+                    <span class="stars" aria-label="Valoración 5 de 5">⭐⭐⭐⭐⭐</span>
+                    <span class="rating-number">5.0</span>
+                    <span class="reviews-count">(18 reseñas)</span>
                 </summary>
-
-                <!-- Contenido opcional al desplegar (puedes borrar o editar) -->
                 <div class="reviews-body">
-                    <div class="review-item">
-                        <strong>María</strong> — “Excelente calidad, se siente sólido.”
-                    </div>
-                    <div class="review-item">
-                        <strong>Juan</strong> — “Llegó rápido, funciona perfecto con mi setup.”
-                    </div>
-                    <div>
-                        <nav>
-                            <a href="reseña.html">¿Quieres dejar tu reseña? Aprieta aquí</a>
-                        </nav>
-                    </div>
+                    <div class="review-item"><strong>LUIS</strong> — “Excelente juego para toda la familia.”</div>
+                    <div class="review-item"><strong>ELY</strong> — “Muy entretenido, lo compré para mis hijos y todos lo disfrutan.”</div>
+                    <div><a href="reseña.html">¿Quieres dejar tu reseña? Haz clic aquí</a></div>
                 </div>
             </details>
         </div>
     </div>
-    <p class="related-products-text">Related Products</p>
+
+    <!-- Productos relacionados -->
+    <p class="related-products-text">Productos Relacionados</p>
     <div class="related-products">
         <div class="related-item">
-            <img src="img_generico1.jpg" alt="Generico1">
+            <img src="productos/Monopoly.webp" alt="Monopoly">
+            <div class="related-desc">Monopoly</div>
+        </div>
+        <div class="related-item">
+            <img src="productos/Carcassonne.webp" alt="Carcassonne">
             <div class="related-desc">Carcassonne</div>
         </div>
         <div class="related-item">
-            <img src="img_generico2.jpg" alt="Generico2">
-            <div class="related-desc">Silla Gamer</div>
-        </div>
-        <div class="related-item">
-            <img src="img_generico3.jpg" alt="Generico3">
-            <div class="related-desc">Consola Retro</div>
-        </div>
-        <div class="related-item">
-            <img src="img_generico4.jpg" alt="Generico4">
-            <div class="related-desc">Mousepad XL</div>
-        </div>
-        <div class="related-item">
-            <img src="img_generico5.jpg" alt="Generico5">
-            <div class="related-desc">Mouse RGB</div>
+            <img src="productos/Risk.webp" alt="Risk">
+            <div class="related-desc">Risk</div>
         </div>
     </div>
 </div>
+
 <script>
-    function showImage(src) {
+    function showImage(src){
         document.getElementById('main-image').src = src;
     }
 </script>

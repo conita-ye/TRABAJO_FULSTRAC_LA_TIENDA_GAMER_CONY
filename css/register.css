@@ -5,13 +5,13 @@ body {
   padding: 0;
 }
 
-/* Fondo gamer con tonos rosita y morado */
+
 .gradient-gamer {
   background: linear-gradient(135deg, #0d0d0d, #330033, #4b004b);
   min-height: 100vh;
 }
 
-/* Botón gamer con efecto neón rosita */
+/* Botón  */
 .gamer-btn {
   background: #ff66cc; /* rosita neón */
   color: #fff;
@@ -25,7 +25,7 @@ body {
   box-shadow: 0 0 15px #ff66cc; /* brillo rosita */
 }
 
-/* Inputs oscuros con borde morado neón */
+/* Inputs  */
 .form-control {
   background-color: #111;
   border: 1px solid #444;

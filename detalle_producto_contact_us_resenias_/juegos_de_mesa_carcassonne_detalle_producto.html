@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carcassonne - Detalle Producto</title>
-    <link rel="stylesheet" href="styles.css/styles_juegos_de_mesa_carcassonne_detalle_producto.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -18,23 +16,20 @@
             flex-direction: column;
             align-items: center;
         }
-
-        #carcassonne-details {
+        #detalle-producto {
             max-width: 1100px;
             margin: 20px auto;
             padding: 20px;
         }
-
-        .main-carcasone-detall {
+        .main-detalle-producto {
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0,0,0,0.7);
             padding: 20px 0;
             box-shadow: 0 0 10px #f868d0;
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
-        .header-flex_2 {
+        .header-flex {
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
@@ -42,8 +37,7 @@
             align-items: center;
             padding: 0 20px;
         }
-
-        .main-carcasone-detall h1 {
+        .main-detalle-producto h1 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 2rem;
@@ -51,45 +45,35 @@
             text-shadow: 0 0 8px #f868d0;
             margin: 0;
         }
-
-        .main-carcasone-detall nav a {
+        .main-detalle-producto nav a {
             color: #f8bbea;
             text-decoration: none;
             margin: 0 8px;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
-        .main-carcasone-detall nav a:hover {
+        .main-detalle-producto nav a:hover {
             color: #fff;
             text-shadow: 0 0 5px #ff5cce;
         }
-
-        .main-carcasone-detall nav a + a:not(.separator) {
-            margin-left: 3px;
-        }
-
-        .breadcrumb_2 {
-            background: rgba(0, 0, 0, 0.6);
+        .breadcrumb {
+            background: rgba(0,0,0,0.6);
             padding: 15px 20px;
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 0 10px #9066ff;
         }
-
-        .breadcrumb_2 nav a {
+        .breadcrumb nav a {
             color: #d4a7ff;
             text-decoration: none;
             margin: 0 5px;
         }
-
-        .breadcrumb_2 nav a:hover {
+        .breadcrumb nav a:hover {
             color: #ff77dd;
             text-shadow: 0 0 5px #ff5cce;
         }
-
-        .detalle-producto {
-            background: rgba(0, 0, 0, 0.6);
+        .detalle-producto-contenido {
+            background: rgba(0,0,0,0.6);
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 0 20px #9100fc;
@@ -97,24 +81,21 @@
             gap: 30px;
             margin-bottom: 30px;
         }
-
         .product-images {
             flex: 1;
         }
-
         #main-image {
             width: 100%;
             max-width: 400px;
             border-radius: 10px;
             box-shadow: 0 0 15px #f868d0;
+            border: 2px solid #ff55cc;
         }
-
         .thumbnails {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-
         .thumbnails img {
             width: 80px;
             height: 80px;
@@ -122,18 +103,17 @@
             cursor: pointer;
             transition: transform 0.3s ease;
             box-shadow: 0 0 5px #9066ff;
+            border: 2px solid #ff55cc;
         }
-
         .thumbnails img:hover {
             transform: scale(1.05);
             box-shadow: 0 0 10px #ff55cc;
+            border-color: #ff77dd;
         }
-
         .product-info {
             flex: 1;
             color: #e3d3ff;
         }
-
         .product-info h3 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
@@ -142,14 +122,12 @@
             margin-bottom: 10px;
             text-shadow: 0 0 10px #ff5ccd;
         }
-
         .product-info p {
             font-size: 1.1rem;
             line-height: 1.5;
             color: #e8d5fe;
             margin-bottom: 20px;
         }
-
         form[action="seleccionar_producto"] {
             background: #3d0f6b;
             padding: 20px;
@@ -157,14 +135,12 @@
             box-shadow: 0 0 15px #bc26ff;
             margin-bottom: 20px;
         }
-
         label[for="cantidad_product"] {
             font-weight: 600;
             color: #fbbbfb;
             margin-bottom: 10px;
             display: block;
         }
-
         select[name="cantidad_productos"] {
             background: #6f33b0;
             color: #f3d9ff;
@@ -177,12 +153,10 @@
             transition: background-color 0.3s ease;
             width: 100%;
         }
-
         select[name="cantidad_productos"]:focus {
             background: #894bbb;
             outline: none;
         }
-
         .btn-primary {
             background: #ff52c4;
             color: #fff;
@@ -196,13 +170,10 @@
             box-shadow: 0 0 10px #ff47c4;
             transition: background-color 0.3s ease;
         }
-
         .btn-primary:hover {
             background: #ff2fa9;
             box-shadow: 0 0 20px #ff2fa9;
         }
-
-        /* Reseñas */
         .reviews {
             background: #2e004d;
             border-radius: 10px;
@@ -210,7 +181,6 @@
             margin-top: 20px;
             color: #e3d3ff;
         }
-
         .reviews summary {
             padding: 20px;
             cursor: pointer;
@@ -221,24 +191,19 @@
             align-items: center;
             gap: 10px;
         }
-
         .reviews summary:hover {
             background: rgba(255, 85, 204, 0.1);
         }
-
-        /* Estrellas estilo neon */
         .stars {
             display: inline-flex;
             gap: 2px;
         }
-
         .star.full::before {
             content: '★';
             color: #ff55cc;
             filter: drop-shadow(0 0 2px #ff77dd);
             font-size: 1.5rem;
         }
-
         .star.half::before {
             content: '☆';
             position: relative;
@@ -249,48 +214,39 @@
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 2px #ff77dd);
         }
-
         .rating-number {
             font-size: 1.2rem;
             color: #fcc5ff;
             font-weight: 700;
             margin-left: 10px;
         }
-
         .reviews-count {
             color: #f8bbea;
             margin-left: 10px;
         }
-
         .reviews-body {
             padding: 0 20px 20px;
         }
-
         .review-item {
             padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 85, 204, 0.2);
+            border-bottom: 1px solid rgba(255,85,204,0.2);
             color: #e8d5fe;
         }
-
         .review-item:last-child {
             border-bottom: none;
         }
-
         .review-item strong {
             color: #f9b8f2;
             font-family: 'Orbitron', sans-serif;
         }
-
         .review-item nav a {
             color: #d4a7ff;
             text-decoration: none;
         }
-
         .review-item nav a:hover {
             color: #ff77dd;
             text-shadow: 0 0 5px #ff5cce;
         }
-
         .related-products-text {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
@@ -300,14 +256,12 @@
             margin: 30px 0 20px;
             text-shadow: 0 0 10px #ff5ccd;
         }
-
         .related-products {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
-
         .related-item {
             background: #2e004d;
             padding: 20px;
@@ -317,185 +271,130 @@
             box-shadow: 0 0 10px #8c00ffaa;
             transition: transform 0.3s ease;
         }
-
         .related-item:hover {
             transform: scale(1.02);
             box-shadow: 0 0 20px #ff55cc;
         }
-
         .related-item img {
             width: 100%;
             max-width: 150px;
             border-radius: 8px;
             box-shadow: 0 0 10px #9066ff;
         }
-
         .related-desc {
             color: #f9b8f2;
             font-weight: 600;
             margin-top: 10px;
             font-family: 'Orbitron', sans-serif;
         }
-
-        /* Ajustes generales para clases originales */
-        .border {
-            border: 1px solid #ff55cc;
-        }
-
-        .rounder {
-            border-radius: 10px;
-        }
-
-        .shadow-sm {
-            box-shadow: 0 0 10px #f868d0;
-        }
-
-        .p-4 {
-            padding: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .detalle-producto {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .header-flex_2 {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .main-carcasone-detall nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
+        @media (max-width:768px){
+            .detalle-producto-contenido{flex-direction:column;padding:20px;}
+            .header-flex{flex-direction:column;gap:10px;}
+            .main-detalle-producto nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
         }
     </style>
 </head>
 <body>
-<form id="carcassone-details" class="border p-4 rounder shadow-sm">
-    <div id="carcassonne-details">
-        <header class="main-carcasone-detall">
-            <div class="header-flex_2">
-                <h1>La Tienda Gamer de cony</h1>
-                <nav>
-                    <a href="home">Home</a>
-                    <a>|</a>
-                    <a href="productos">Productos</a>
-                    <a>|</a>
-                    <a href="nosotros">Nosotros</a>
-                    <a>|</a>
-                    <a href="blogs">Blogs</a>
-                    <a>|</a>
-                    <a href="contact_us.html">Contacto</a>
-                    <a href="cart.html">Cart(4)</a>
-                </nav>
-            </div>
-        </header>
-        <div class="breadcrumb_2">
-            <header>
-                <nav>
-                    <a href="home">Home</a>
-                    <a>></a>
-                    <a href="category">Juegos de Mesa</a>
-                    <a>></a>
-                    <a>Carcassonne</a>
-                </nav>
-            </header>
+<div id="detalle-producto">
+    <header class="main-detalle-producto">
+        <div class="header-flex">
+            <h1>La Tienda Gamer de cony</h1>
+            <nav>
+                <a href="home">Home</a>
+                <a>|</a>
+                <a href="productos">Productos</a>
+                <a>|</a>
+                <a href="nosotros">Nosotros</a>
+                <a>|</a>
+                <a href="blogs">Blogs</a>
+                <a>|</a>
+                <a href="contact_us.html">Contacto</a>
+                <a href="cart.html">Cart(4)</a>
+            </nav>
         </div>
-        <div class="detalle-producto">
-            <div class="product-images">
-                <img id="main-image" src="img1.jpg" alt="Imagen_grande_izquierda">
-                <div class="thumbnails">
-                    <img src="img1.jpg" alt="Miniatura 1" onclick="showImage('img1.jpg')">
-                    <img src="img2.jpg" alt="Miniatura 2" onclick="showImage('img2.jpg')">
-                    <img src="img3.jpg" alt="Miniatura 3" onclick="showImage('img3.jpg')">
-                </div>
+    </header>
+    <div class="breadcrumb">
+        <nav>
+            <a href="home">Home</a> >
+            <a href="category">Juegos de Mesa</a> >
+            <a>Carcassonne</a>
+        </nav>
+    </div>
+    <div class="detalle-producto-contenido">
+        <div class="product-images">
+            <img id="main-image" src="img1.jpg" alt="Carcassonne principal">
+            <div class="thumbnails">
+                <img src="img1.jpg" alt="Miniatura 1" onclick="showImage('img1.jpg')">
+                <img src="img2.jpg" alt="Miniatura 2" onclick="showImage('img2.jpg')">
+                <img src="img3.jpg" alt="Miniatura 3" onclick="showImage('img3.jpg')">
             </div>
-            <div class="product-info">
-                <h3>Carcassonne $24.990 CLP</h3>
-                <p>Un juego de colocación de fichas donde los jugadores construyen el paisaje
-                    alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de aprender.
-                </p>
-                <form action="seleccionar_producto">
-                    <label for="cantidad_product">Cantidad:</label>
-                    <select name="cantidad_productos">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form>
-                <!-- Reseñas -->
-                <details class="reviews">
-                    <summary class="reviews-tab">
+        </div>
+        <div class="product-info">
+            <h3>Carcassonne $24.990 CLP</h3>
+            <p>Un juego de colocación de fichas donde los jugadores construyen el paisaje
+                alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de aprender.</p>
+            <form action="seleccionar_producto">
+                <label for="cantidad_product">Cantidad:</label>
+                <select name="cantidad_productos">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <button type="submit" class="btn-primary">Añadir al carrito</button>
+            </form>
+            <details class="reviews">
+                <summary>
                     <span class="stars" aria-label="Valoración 4.5 de 5">
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star full"></span>
-                    <span class="star half"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star half"></span>
                     </span>
-                        <span class="rating-number">4.5</span>
-                        <span class="reviews-count">(24 reseñas)</span>
-                    </summary>
-
-                    <!-- Contenido opcional al desplegar (puedes borrar o editar) -->
-                    <div class="reviews-body">
-                        <div class="review-item">
-                            <strong>María</strong> — “Excelente calidad, se siente sólido.”
-                        </div>
-                        <div class="review-item">
-                            <strong>Juan</strong> — “Llegó rápido, funciona perfecto con mi setup.”
-                        </div>
-                        <div>
-                            <nav>
-                                <a href="reseña.html">¿Quieres dejar tu reseña? Aprieta aquí</a>
-                            </nav>
-                        </div>
-                    </div>
-                </details>
-            </div>
-        </div>
-        <p class="related-products-text">Related Products</p>
-        <div class="related-products">
-            <div class="related-item">
-                <img src="img_generico1.jpg" alt="Generico1">
-                <div class="related-desc">Catan</div>
-            </div>
-            <div class="related-item">
-                <img src="img_generico2.jpg" alt="Generico2">
-                <div class="related-desc">Consola Retro</div>
-            </div>
-            <div class="related-item">
-                <img src="img_generico3.jpg" alt="Generico3">
-                <div class="related-desc">Silla Gamer</div>
-            </div>
-            <div class="related-item">
-                <img src="img_generico4.jpg" alt="Generico4">
-                <div class="related-desc">Mousepad XL</div>
-            </div>
-            <div class="related-item">
-                <img src="img_generico5.jpg" alt="Generico5">
-                <div class="related-desc">Mouse RGB</div>
-            </div>
+                    <span class="rating-number">4.5</span>
+                    <span class="reviews-count">(24 reseñas)</span>
+                </summary>
+                <div class="reviews-body">
+                    <div class="review-item"><strong>María</strong> — “Excelente calidad, se siente sólido.”</div>
+                    <div class="review-item"><strong>Juan</strong> — “Llegó rápido, funciona perfecto con mi setup.”</div>
+                    <div><nav><a href="reseña.html">¿Quieres dejar tu reseña? Aprieta aquí</a></nav></div>
+                </div>
+            </details>
         </div>
     </div>
-</form>
+    <p class="related-products-text">Productos Relacionados</p>
+    <div class="related-products">
+        <div class="related-item">
+            <img src="catan.jpg" alt="Catan">
+            <div class="related-desc">Catan</div>
+        </div>
+        <div class="related-item">
+            <img src="monopoly.jpg" alt="Monopoly">
+            <div class="related-desc">Monopoly</div>
+        </div>
+        <div class="related-item">
+            <img src="silla.jpg" alt="Silla Gamer">
+            <div class="related-desc">Silla Gamer</div>
+        </div>
+        <div class="related-item">
+            <img src="mousepad.jpg" alt="Mousepad XL">
+            <div class="related-desc">Mousepad XL</div>
+        </div>
+        <div class="related-item">
+            <img src="mouse.jpg" alt="Mouse RGB">
+            <div class="related-desc">Mouse RGB</div>
+        </div>
+    </div>
+</div>
 <script>
-    function showImage(src) {
-        document.getElementById('main-image').src = src;
-    }
+    function showImage(src){document.getElementById('main-image').src=src;}
 </script>
 </body>
 </html>
