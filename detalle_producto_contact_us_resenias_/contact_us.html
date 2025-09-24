@@ -1,61 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="head_contact_us">
-  <link rel="stylesheet" href="styles.css/styles_contact_us.css">
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="titulo">Contact_us</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
+    <title>Contacto - La Tienda Gamer de cony</title>
+    <link rel="stylesheet" href="styles.css/styles_contact_us.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle at center, #f868d0, #9066ff, #3a22ff);
+            color: #eee;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .main-contact-us {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            box-shadow: 0 0 10px #f868d0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header-flex {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .main-contact-us h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #ff88e0;
+            text-shadow: 0 0 8px #f868d0;
+            margin: 0;
+        }
+
+        .main-contact-us nav a {
+            color: #f8bbea;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-contact-us nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #ff5cce;
+        }
+
+        .main-contact-us nav a + a:not(.separator) {
+            margin-left: 3px;
+        }
+
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px #9100fc;
+        }
+
+        .contact-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1); /* Placeholder para src vacío */
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px #f868d0;
+            display: inline-block;
+        }
+
+        .contact-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #ff77dd;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ff5ccd;
+        }
+
+        #contactUs {
+            background: #3d0f6b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #bc26ff;
+            color: #e3d3ff;
+        }
+
+        .formulario-titulo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #ff78d8;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px #ff6edf;
+        }
+
+        .row_mb-3 {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #fbbbfb;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: #6f33b0;
+            color: #f3d9ff;
+            box-shadow: inset 0 0 5px #ab47ff;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: #894bbb;
+            outline: none;
+            box-shadow: inset 0 0 5px #ab47ff, 0 0 10px #ff55cc;
+        }
+
+        .form-control::placeholder {
+            color: #d4a7ff;
+        }
+
+        .button_confirmar {
+            margin-top: 20px;
+        }
+
+        .btn-outline-light {
+            background: #ff52c4;
+            color: #fff;
+            border: none;
+            font-weight: 700;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 0 10px #ff47c4;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-outline-light:hover {
+            background: #ff2fa9;
+            box-shadow: 0 0 20px #ff2fa9;
+        }
+
+        /* Ajustes generales para clases originales */
+        .border {
+            border: 1px solid #ff55cc;
+        }
+
+        .rounder {
+            border-radius: 10px;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 0 10px #f868d0;
+        }
+
+        .p-4 {
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-contact-us nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .contact-section {
+                padding: 20px;
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
-<body class="formula_contact_us">
-    <header class="main-contact-us">
-        <div class="header-flex">
-            <h1>La Tienda Gamer de cony</h1>
-            <nav>
-                <a href="home">Home</a>
-                <a>|</a>
-                <a href="productos">Productos</a>
-                <a>|</a>
-                <a href="nosotros">Nosotros</a>
-                <a>|</a>
-                <a href="blogs">Blogs</a>
-                <a>|</a>
-                <a href="contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
-    <div>
-        <img src="" alt="logo titulo">
-        <h1 class="mb-4 text-center">OneTech</h1>
-        <form id="contactUs" class="border p-4 rounder shadow-sm formulario_contacto">
-            <div class="formulario-titulo">
-                FORMULARIO DE CONTACTO
-            </div>
-            <div class="row_mb-3">
-                <label for="nombre-completo" class="form-label">NOMBRE COMPLETO</label>
-                <input type="text" id="nombre-completo" class="form-control" required />
-            </div>
-            <div class="row_mb-3">
-                <label for="correo" class="form-label">CORREO</label>
-                <input type="text" id="correo" class="form-control" required />
-            </div>
-            <div class="row_mb-3">
-                <label for="contenido" class="form-label">CONTENIDO</label>
-                <input type="text" id="contenido" class="form-control" required />
-            </div>
-            <div class="button_confirmar">
-                <button type="button" class="btn btn-outline-light w-100 me-2">
-                    ENVIAR MENSAJE
-                </button>
-            </div>
-        </form>
+<body>
+<header class="main-contact-us">
+    <div class="header-flex">
+        <h1>La Tienda Gamer de cony</h1>
+        <nav>
+            <a href="home">Home</a>
+            <a>|</a>
+            <a href="productos">Productos</a>
+            <a>|</a>
+            <a href="nosotros">Nosotros</a>
+            <a>|</a>
+            <a href="blogs">Blogs</a>
+            <a>|</a>
+            <a href="contact_us.html">Contacto</a>
+        </nav>
     </div>
-    
+</header>
+<div class="contact-section">
+    <img src="img_generico_logo.jpg" alt="Logo de La Tienda Gamer de cony"> <!-- Placeholder para src vacío -->
+    <h1>Contacto</h1>
+    <form id="contactUs" class="border p-4 rounder shadow-sm formulario_contacto">
+        <div class="formulario-titulo">
+            FORMULARIO DE CONTACTO
+        </div>
+        <div class="row_mb-3">
+            <label for="nombre-completo" class="form-label">NOMBRE COMPLETO</label>
+            <input type="text" id="nombre-completo" class="form-control" placeholder="Ingresa tu nombre completo" required />
+        </div>
+        <div class="row_mb-3">
+            <label for="correo" class="form-label">CORREO</label>
+            <input type="email" id="correo" class="form-control" placeholder="Ingresa tu correo electrónico" required />
+        </div>
+        <div class="row_mb-3">
+            <label for="contenido" class="form-label">CONTENIDO</label>
+            <textarea id="contenido" class="form-control" rows="5" placeholder="Describe tu consulta o mensaje" required></textarea>
+        </div>
+        <div class="button_confirmar">
+            <button type="submit" class="btn-outline-light">ENVIAR MENSAJE</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

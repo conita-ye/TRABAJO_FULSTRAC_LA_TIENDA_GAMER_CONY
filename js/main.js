@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Volver arriba suavemente
+  // Volver para arriba lentamente
   backToTop.addEventListener('click', function (e) {
     e.preventDefault();
     window.scrollTo({
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Validación básica del campo de email en footer
+  // Validación  de email en footer
   const emailInput = document.querySelector('footer input[type="email"]');
   const enviarBtn = document.querySelector('footer .btn');
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Función para validar formato de correo electrónico
+  // Funciónes para validar  correo electrónico
   function validarEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

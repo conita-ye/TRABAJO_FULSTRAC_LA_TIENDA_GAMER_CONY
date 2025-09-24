@@ -1,270 +1,419 @@
-body{
-background:#000;
-color:#fff;
-font-family:"Roboto", Arial, sans-serif;
-margin:0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poleras - Detalle Producto</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: "Roboto", Arial, sans-serif;
+            margin: 0;
+        }
 
-.main-polera-detall{
-background:#111;
-border-bottom: 2px solid #39ff14;
-padding:0;
-}
-.header-flex_10{
-display:flex; 
-align-items:center; 
-justify-content:space-between;
-padding:16px 32px;
-}
-.header-flex_10 h1{
-margin:0; 
-font-family:"Orbitron", sans-serif;
-color:#39ff14; 
-font-size:2rem;
-}
-.header-flex_10 nav{ 
-    display:flex; 
-    align-items:center; 
-    gap:12px; 
-}
+        /* HEADER */
+        .main-polera-detall {
+            background: #111;
+            border-bottom: 2px solid #39ff14;
+            padding: 0;
+        }
+        .header-flex_10 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header-flex_10 h1 {
+            margin: 0;
+            font-family: "Orbitron", sans-serif;
+            color: #39ff14;
+            font-size: 2rem;
+        }
+        .header-flex_10 nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-flex_10 a {
+            color: #d3d3d3;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .header-flex_10 a:hover {
+            color: #39ff14;
+        }
 
-.header-flex_10 a{
-  color:#d3d3d3; 
-  text-decoration:none; 
-  font-weight:500; 
-  font-size:1rem;
-}
-.header-flex_10 a:hover{ 
-    color:#39ff14; 
-}
+        /* GENERAL CONTAINER */
+        #polera-details {
+            background: #111;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(57, 255, 20, .1);
+            max-width: 1200px;
+            margin: 32px auto;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
+        /* BREADCRUMB */
+        .breadcrumb_10 header {
+            margin-bottom: 8px;
+        }
+        .breadcrumb_10 nav {
+            font-size: .95rem;
+        }
+        .breadcrumb_10 a {
+            color: #39ff14;
+            text-decoration: underline;
+        }
+        .breadcrumb_10 a:last-child {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
 
-#polera-details{
-background:#111;
-border-radius:12px;
-box-shadow:0 2px 16px rgba(57,255,20,.1);
-max-width:1200px;
-margin:32px auto;
-padding:32px;
-display:flex; flex-direction:column; gap:24px;
-}
+        /* PRODUCT DETAIL */
+        .detalle-producto {
+            display: grid;
+            grid-template-columns: 520px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #main-image {
+            width: 450px;
+            height: 350px;
+            object-fit: cover;
+            border: 2px solid #39ff14;
+            border-radius: 8px;
+            background: #222;
+            margin-bottom: 12px;
+        }
+        .thumbnails {
+            display: flex;
+            gap: 80px;
+            margin-left: 80px;
+        }
+        .thumbnails img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 2px solid #39ff14;
+            border-radius: 6px;
+            background: #222;
+            cursor: pointer;
+            transition: border-color .2s;
+        }
+        .thumbnails img:hover {
+            border-color: #1e90ff;
+        }
 
+        /* PRODUCT INFO */
+        .product-info {
+            max-width: 640px;
+        }
+        .product-info h3 {
+            color: #39ff14;
+            font-size: 1.5rem;
+            margin: 0 0 12px;
+        }
+        .product-info p {
+            color: #d3d3d3;
+            line-height: 1.5;
+            font-size: 1rem;
+            margin: 0 0 16px;
+            max-width: 60ch;
+            word-wrap: break-word;
+            hyphens: auto;
+            text-align: justify;
+        }
+        .product-info form {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .product-info label {
+            color: #39ff14;
+            margin-right: 4px;
+        }
+        .product-info select {
+            background: #000;
+            color: #fff;
+            border: 1px solid #39ff14;
+            border-radius: 4px;
+            padding: 4px 8px;
+        }
+        .btn.btn-primary {
+            background: #39ff14;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            padding: 6px 12px;
+            font-size: .95rem;
+            transition: background .2s;
+        }
+        .btn.btn-primary:hover {
+            background: #1e90ff;
+            color: #fff;
+        }
 
-.breadcrumb_10 header{ 
-    margin-bottom:8px; 
-}
-.breadcrumb_10 nav{ 
-    font-size:.95rem; 
-}
-.breadcrumb_10 a{ 
-    color:#39ff14; 
-    text-decoration:underline; 
-}
-.breadcrumb_10 a:last-child{ 
-    color:#fff; 
-    text-decoration:none; 
-    font-weight:700; 
-}
+        /* REVIEWS */
+        .reviews {
+            margin-top: 14px;
+        }
+        .reviews summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        .reviews summary::-webkit-details-marker {
+            display: none;
+        }
+        .reviews-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(57, 255, 20, .12);
+            border: 1px solid rgba(57, 255, 20, .35);
+            color: #9BFFA5;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .reviews-tab:hover {
+            border-color: #1E90FF;
+            box-shadow: 0 0 0 2px rgba(30, 144, 255, .18) inset;
+        }
+        .rating-number {
+            color: #1E90FF;
+            font-weight: 700;
+        }
+        .reviews-count {
+            color: #D3D3D3;
+            font-size: .9rem;
+        }
+        .stars {
+            display: inline-flex;
+            gap: 4px;
+        }
+        .star {
+            position: relative;
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+        }
+        .star::before {
+            content: "★";
+            color: #2c2c2c;
+            font-size: 1.1em;
+            line-height: 1;
+        }
+        .star.full::before {
+            color: #39FF14;
+        }
+        .star.half::before {
+            color: #2c2c2c;
+        }
+        .star.half::after {
+            content: "★";
+            color: #39FF14;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            overflow: hidden;
+        }
+        .reviews-body {
+            margin-top: 10px;
+            padding-left: 12px;
+            border-left: 2px solid #1a1a1a;
+            color: #D3D3D3;
+        }
+        .review-item {
+            margin: 6px 0;
+        }
 
+        /* RELATED PRODUCTS */
+        .related-products-text {
+            color: #39ff14;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 8px 0 12px 70px;
+        }
+        .related-products {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(110px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+        .related-item {
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .related-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            background: #222;
+            border: 2px solid #39ff14;
+            border-radius: 8px;
+        }
+        .related-desc {
+            color: #39ff14;
+            font-size: .95rem;
+            margin-top: 9px;
+            text-align: center;
+        }
 
-.detalle-producto{
-display:grid;
-grid-template-columns: 520px 1fr;  
-gap:32px;
-align-items:start;
-}
+        /* MEDIA QUERIES */
+        @media (max-width: 900px) {
+            #polera-details {
+                padding: 16px;
+            }
+            .detalle-producto {
+                grid-template-columns: 1fr;
+            }
+            .thumbnails {
+                gap: 16px;
+                margin-left: 0;
+            }
+            .product-info {
+                max-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="polera-details">
+        <header class="main-polera-detall">
+            <div class="header-flex_10">
+                <h1>La Tienda Gamer de cony</h1>
+                <nav>
+                    <a href="home">Home</a>
+                    <a>|</a>
+                    <a href="productos">Productos</a>
+                    <a>|</a>
+                    <a href="nosotros">Nosotros</a>
+                    <a>|</a>
+                    <a href="blogs">Blogs</a>
+                    <a>|</a>
+                    <a href="contact_us.html">Contacto</a>
+                    <a href="cart.html">Cart(4)</a>
+                </nav>
+            </div>
+        </header>
+        <div class="breadcrumb_10">
+            <header>
+                <nav>
+                    <a href="home">Home</a>
+                    <a>></a>
+                    <a href="category">Poleras</a>
+                    <a>></a>
+                    <a>Polera Dark Souls</a>
+                </nav>
+            </header>
+        </div>
+        <div class="detalle-producto">
+            <div class="product-images">
+                <img id="main-image" src="polera.jpg" alt="Imagen_grande_izquierda">
+                <div class="thumbnails">
+                    <img src="img1.jpg" alt="Miniatura 1" onclick="showImage('img1.jpg')">
+                    <img src="img2.jpg" alt="Miniatura 2" onclick="showImage('img2.jpg')">
+                    <img src="img3.jpg" alt="Miniatura 3" onclick="showImage('img3.jpg')">
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Polera Dark Souls $19.990 CLP</h3>
+                <p>Una polera de algodón 100% con un diseño
+                    único del emblemático juego Dark Souls. Cómoda y duradera, ideal para fans
+                    del género de rol y acción.
+                </p>
+                <form action="seleccionar_producto">
+                    <label for="cantidad_product">Cantidad:</label>
+                    <select name="cantidad_productos">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+                </form>
+                <details class="reviews">
+                    <summary class="reviews-tab">
+                        <span class="stars" aria-label="Valoración 4.5 de 5">
+                            <span class="star full"></span>
+                            <span class="star full"></span>
+                            <span class="star full"></span>
+                            <span class="star full"></span>
+                            <span class="star half"></span>
+                        </span>
+                        <span class="rating-number">4.5</span>
+                        <span class="reviews-count">(24 reseñas)</span>
+                    </summary>
 
-
-.product-images{ 
-    display:flex; 
-    flex-direction:column; 
-    align-items:flex-start; 
-}
-#main-image{
-width:450px; height:350px; 
-object-fit:cover;
-border:2px solid #39ff14; 
-border-radius:8px; 
-background:#222;
-margin-bottom:12px;
-
-}
-.thumbnails{ 
-    display:flex; 
-    gap:80px; 
-    margin-left:80px; 
-}
-.thumbnails img{
-width:80px; 
-height:80px; 
-object-fit:cover;
-border:2px solid #39ff14; 
-border-radius:6px; 
-background:#222;
-cursor:pointer; 
-transition:border-color .2s;
-}
-.thumbnails img:hover{ 
-    border-color:#1e90ff; 
-}
-
-
-.product-info{ 
-    max-width:640px; 
-}
-.product-info h3{
-color:#39ff14; 
-font-size:1.5rem; 
-margin:0 0 12px;
-}
-.product-info p{
-color:#d3d3d3; 
-line-height:1.5; 
-font-size:1rem;
-margin:0 0 16px;
-max-width:60ch;               
-word-wrap:break-word; 
-hyphens:auto;
-text-align:justify;           
-}
-
-
-.product-info form[action="seleccionar_producto"]{
-  margin-top:16px;
-  display:flex; 
-  align-items:center; 
-  gap:10px; 
-  flex-wrap:wrap;
-}
-.product-info label{ 
-    color:#39ff14; 
-    margin-right:4px; 
-}
-.product-info select{
-background:#000; 
-color:#fff;
-border:1px solid #39ff14; 
-border-radius:4px; 
-padding:4px 8px;
-}
-.btn.btn-primary{
-background:#39ff14; 
-color:#000; 
-border:none; 
-border-radius:4px;
-font-weight:700; 
-padding:6px 12px; 
-font-size:.95rem;
-transition:background .2s;
-}
-.btn.btn-primary:hover{ 
-    background:#1e90ff; 
-    color:#fff; }
-
-
-.related-products-text{
-color:#39ff14; 
-font-size:1.2rem; 
-font-weight:700;
-margin: 8px 0 12px 70px;   
-}
-.related-products{
-display:grid;
-grid-template-columns: repeat(5, minmax(110px, 1fr));
-gap:40px;
-justify-items:center;
-}
-.related-item{ 
-    width:120px; 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; }
-.related-item img{
-width:100px; 
-height:100px; 
-object-fit:cover;
-background:#222; 
-border:2px solid #39ff14; 
-border-radius:8px;
-}
-.related-desc{ 
-    color:#39ff14; 
-    font-size:.95rem; 
-    margin-top:9px; 
-    text-align:center; 
-}
-.reviews{ margin-top: 14px; }
-.reviews summary{ list-style: none; 
-    cursor: pointer; }
-.reviews summary::-webkit-details-marker{ display: none; }
-
-.reviews-tab{
-  display: inline-flex; 
-  align-items: center; 
-  gap: 10px;
-  padding: 8px 12px; 
-  border-radius: 999px;
-  background: rgba(57,255,20,.12);
-  border: 1px solid rgba(57,255,20,.35);
-  color: #9BFFA5;
-  transition: border-color .2s ease, box-shadow .2s ease;
-}
-.reviews-tab:hover{
-  border-color: #1E90FF;
-  box-shadow: 0 0 0 2px rgba(30,144,255,.18) inset;
-}
-.rating-number{ color:#1E90FF; 
-    font-weight:700; 
-}
-.reviews-count{ color:#D3D3D3; 
-    font-size:.9rem; 
-}
-
-.stars{ display:inline-flex; 
-    gap:4px; 
-}
-.star{ position:relative; 
-    display:inline-block; 
-    width:1.1em; 
-    height:1.1em; 
-}
-.star::before{ content:"★"; 
-    color:#2c2c2c; 
-    font-size:1.1em; 
-    line-height:1; 
-}
-.star.full::before{ color:#39FF14; }
-.star.half::before{ color:#2c2c2c; }
-.star.half::after{
-  content:"★"; 
-  color:#39FF14; 
-  position:absolute; left:0; 
-  top:0; width:50%; 
-  overflow:hidden;
-}
-
-.reviews-body{ margin-top:10px; 
-    padding-left:12px; 
-    border-left:2px solid #1a1a1a; 
-    color:#D3D3D3; 
-}
-.review-item{ margin:6px 0; }
-
-
-.reviews.reviews-static .reviews-tab{ cursor: default; }
-.reviews.reviews-static .reviews-body{ display: none; }
-
-
-
-@media (max-width: 900px){
-#polera-details{ 
-    padding:16px; 
-}
-.detalle-producto{ 
-    grid-template-columns:1fr; 
-}
-.thumbnails{ 
-    gap:16px; margin-left:0;
-}
-.product-info{ max-width:unset; }
-}
+                    <div class="reviews-body">
+                        <div class="review-item">
+                            <strong>valentina</strong> — “Excelente calidad, se siente sólido.”
+                        </div>
+                        <div class="review-item">
+                            <strong>wington</strong> — “Llegó rápido, funciona perfecto con mi setup.”
+                        </div>
+                        <div>
+                            <nav>
+                                <a href="resenia.html">¿Quieres dejar tu reseña? Aprieta aquí</a>
+                            </nav>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+        <p class="related-products-text">Related Products</p>
+        <div class="related-products">
+            <div class="related-item">
+                <img src="img_generico1.jpg" alt="Generico1">
+                <div class="related-desc">Catan</div>
+            </div>
+            <div class="related-item">
+                <img src="img_generico2.jpg" alt="Generico2">
+                <div class="related-desc">Consola Retro</div>
+            </div>
+            <div class="related-item">
+                <img src="img_generico3.jpg" alt="Generico3">
+                <div class="related-desc">Silla Gamer</div>
+            </div>
+            <div class="related-item">
+                <img src="img_generico4.jpg" alt="Generico4">
+                <div class="related-desc">Mousepad XL</div>
+            </div>
+            <div class="related-item">
+                <img src="img_generico5.jpg" alt="Generico5">
+                <div class="related-desc">Mouse RGB</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function showImage(src) {
+        document.getElementById('main-image').src = src;
+    }
+</script>
+</html>

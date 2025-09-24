@@ -3,128 +3,309 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Onetech — Carrito</title>
+  <title>La Tienda Gamer de cony — Carrito</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css/styles_cart.css">
+
+  <style>
+    /* Estilos globales basados en el código de productos */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ff66cc, #8000ff, #66d9ff);
+      color: #fff;
+    }
+
+    /* HEADER */
+    .main-cart-header {
+      background: rgba(128, 0, 255, 0.8);
+      border-bottom: 3px solid #ff66cc;
+      padding: 16px 32px;
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .main-cart-header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff66cc, #66d9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .main-cart-header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .main-cart-header nav a:hover {
+      color: #ff66cc;
+    }
+
+    /* Breadcrumb */
+    .cart-breadcrumb {
+      padding: 12px 32px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.4);
+      margin-bottom: 20px;
+    }
+    .cart-breadcrumb a {
+      color: #66d9ff;
+      text-decoration: none;
+    }
+    .cart-breadcrumb span {
+      color: #ff99e6;
+    }
+
+    /* Contenido principal del carrito */
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(255, 102, 204, 0.5);
+    }
+    .cart-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    .cart-list {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .cart-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cart-head {
+      font-weight: bold;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .cart-product {
+      display: flex;
+      align-items: center;
+    }
+    .cart-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 15px;
+      border: 2px solid #66d9ff;
+    }
+    .cart-info h4 {
+      margin: 0 0 5px 0;
+    }
+    .cart-info small {
+      color: #ff99e6;
+    }
+    .remove {
+      background: none;
+      border: none;
+      color: #ff66cc;
+      cursor: pointer;
+      padding: 0;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .price, .subtotal {
+      font-weight: 500;
+      color: #ffccff;
+    }
+    .qty select {
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      border: 1px solid #66d9ff;
+      border-radius: 4px;
+      padding: 5px;
+    }
+    .qty select option {
+        background-color: #8000ff;
+    }
+
+    /* Resumen del carrito */
+    .cart-summary {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .cart-summary h3 {
+      margin-top: 0;
+      color: #ffccff;
+    }
+    .cart-summary .line, .cart-summary .total {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cart-summary .total {
+      font-size: 1.2em;
+      font-weight: bold;
+      border-bottom: none;
+      margin-top: 10px;
+      color: #66d9ff;
+    }
+    .actions-inline {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      background: linear-gradient(90deg, #ff66cc, #8000ff, #66d9ff);
+      border: none;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex-grow: 1;
+      font-weight: 500;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 102, 204, 0.8);
+    }
+    .btn-cancel {
+        background: none;
+        border: 2px solid #ff66cc;
+        color: #ff66cc;
+    }
+    .btn-cancel:hover {
+        background-color: rgba(255, 102, 204, 0.2);
+    }
+  </style>
 </head>
 <body>
-  <header class="main-cart-header">
-    <div class="header-flex">
-      <h1>La Tienda Gamer de cony</h1>
-      <nav>
-        <a href="home">Home</a><a>|</a>
-        <a href="productos">Productos</a><a>|</a>
-        <a href="nosotros">Nosotros</a><a>|</a>
-        <a href="blogs">Blogs</a><a>|</a>
-        <a href="contact_us.html">Contacto</a>
-        <a href="cart.html">Cart(4)</a>
-      </nav>
-    </div>
-  </header>
-  <main id="cart-details">
-    <div class="cart-breadcrumb">
-      <nav>
-        <a href="home">Home</a> <span>></span>
-        <a href="productos">Productos</a> <span>></span>
-        <span>Carrito</span>
-      </nav>
-    </div>
+<header class="main-cart-header">
+  <div class="header-flex">
+    <h1>La Tienda Gamer de cony</h1>
+    <nav>
+      <a href="home">Home</a><a>|</a>
+      <a href="productos">Productos</a><a>|</a>
+      <a href="nosotros">Nosotros</a><a>|</a>
+      <a href="blogs">Blogs</a><a>|</a>
+      <a href="contact_us.html">Contacto</a>
+      <a href="cart.html">Cart(4)</a>
+    </nav>
+  </div>
+</header>
+<main id="cart-details">
+  <div class="cart-breadcrumb">
+    <nav>
+      <a href="home">Home</a> <span>></span>
+      <a href="productos">Productos</a> <span>></span>
+      <span>Carrito</span>
+    </nav>
+  </div>
 
-    <section class="cart-grid">
-      <div class="cart-list">
-        <div class="cart-row cart-head">
-          <div>Producto</div>
-          <div>Precio</div>
-          <div>Cantidad</div>
-          <div>Subtotal</div>
+  <section class="cart-grid">
+    <div class="cart-list">
+      <div class="cart-row cart-head">
+        <div>Producto</div>
+        <div>Precio</div>
+        <div>Cantidad</div>
+        <div>Subtotal</div>
+      </div>
+
+      <div class="cart-row">
+        <div class="cart-product">
+          <img class="cart-thumb" src="img/catan.jpg" alt="Catan">
+          <div class="cart-info">
+            <h4>Catan</h4>
+            <small>Juegos de mesa</small>
+            <button class="remove" type="button">Quitar</button>
+          </div>
         </div>
-
-        <div class="cart-row">
-          <div class="cart-product">
-            <img class="cart-thumb" src="img/catan.jpg" alt="Catan">
-            <div class="cart-info">
-              <h4>Catan</h4>
-              <small>Juegos de mesa</small>
-              <button class="remove" type="button">Quitar</button>
-            </div>
-          </div>
-          <div class="price">$29.990</div>
-          <div class="qty">
-            <select>
-              <option selected>1</option><option>2</option><option>3</option>
-            </select>
-          </div>
-          <div class="subtotal">$29.990</div>
+        <div class="price">$29.990</div>
+        <div class="qty">
+          <select>
+            <option selected>1</option><option>2</option><option>3</option>
+          </select>
         </div>
-        <div class="cart-row">
-          <div class="cart-product">
-            <img class="cart-thumb" src="img/mouse.jpg" alt="Mouse Gamer Logitech G502 HERO ">
-            <div class="cart-info">
-              <h4>Mouse Gamer Logitech G502 HERO </h4>
-              <small>Mouse</small>
-              <button class="remove" type="button">Quitar</button>
-            </div>
+        <div class="subtotal">$29.990</div>
+      </div>
+      <div class="cart-row">
+        <div class="cart-product">
+          <img class="cart-thumb" src="img/mouse.jpg" alt="Mouse Gamer Logitech G502 HERO ">
+          <div class="cart-info">
+            <h4>Mouse Gamer Logitech G502 HERO </h4>
+            <small>Mouse</small>
+            <button class="remove" type="button">Quitar</button>
           </div>
-          <div class="price">$49.990</div>
-          <div class="qty">
-            <select>
-              <option selected>1</option><option>2</option><option>3</option>
-            </select>
-          </div>
-          <div class="subtotal">$49.990</div>
         </div>
-
-
-        <div class="cart-row">
-          <div class="cart-product">
-            <img class="cart-thumb" src="img/mousepad.jpg" alt="Mousepad Razer Goliathus Extended Chroma">
-            <div class="cart-info">
-              <h4>Mousepad Razer Goliathus Extended Chroma</h4>
-              <small>Mousepad </small>
-              <button class="remove" type="button">Quitar</button>
-            </div>
-          </div>
-          <div class="price">$29.990</div>
-          <div class="qty">
-            <select>
-              <option selected>1</option><option>2</option><option>3</option>
-            </select>
-          </div>
-          <div class="subtotal">$29.990</div>
+        <div class="price">$49.990</div>
+        <div class="qty">
+          <select>
+            <option selected>1</option><option>2</option><option>3</option>
+          </select>
         </div>
-
-
-        <div class="cart-row">
-          <div class="cart-product">
-            <img class="cart-thumb" src="img/consola.jpg" alt="PlayStation 5">
-            <div class="cart-info">
-              <h4>PlayStation 5 </h4>
-              <small>Consolas</small>
-              <button class="remove" type="button">Quitar</button>
-            </div>
-          </div>
-          <div class="price">$549.990</div>
-          <div class="qty">
-            <select>
-              <option selected>1</option><option>2</option><option>3</option>
-            </select>
-          </div>
-          <div class="subtotal">$549.990</div>
-        </div>
+        <div class="subtotal">$49.990</div>
       </div>
 
 
-      <aside class="cart-summary">
-        <h3>Resumen</h3>
-        <div class="line"><span>Subtotal</span><span>$659,960</span></div>
-        <div class="line"><span>Envío</span><span>Gratis</span></div>
-        <div class="total"><span>Total</span><span>$659,960</span></div>
-        <div class="actions-inline">
-            <button class="btn btn-confirm" type="button">Confirmar compra</button>
-            <button class="btn btn-cancel" type="button">Cancelar</button>
+      <div class="cart-row">
+        <div class="cart-product">
+          <img class="cart-thumb" src="img/mousepad.jpg" alt="Mousepad Razer Goliathus Extended Chroma">
+          <div class="cart-info">
+            <h4>Mousepad Razer Goliathus Extended Chroma</h4>
+            <small>Mousepad </small>
+            <button class="remove" type="button">Quitar</button>
+          </div>
         </div>
+        <div class="price">$29.990</div>
+        <div class="qty">
+          <select>
+            <option selected>1</option><option>2</option><option>3</option>
+          </select>
+        </div>
+        <div class="subtotal">$29.990</div>
+      </div>
 
-        
 
-        
+      <div class="cart-row">
+        <div class="cart-product">
+          <img class="cart-thumb" src="img/consola.jpg" alt="PlayStation 5">
+          <div class="cart-info">
+            <h4>PlayStation 5 </h4>
+            <small>Consolas</small>
+            <button class="remove" type="button">Quitar</button>
+          </div>
+        </div>
+        <div class="price">$549.990</div>
+        <div class="qty">
+          <select>
+            <option selected>1</option><option>2</option><option>3</option>
+          </select>
+        </div>
+        <div class="subtotal">$549.990</div>
+      </div>
+    </div>
+
+
+    <aside class="cart-summary">
+      <h3>Resumen</h3>
+      <div class="line"><span>Subtotal</span><span>$659,960</span></div>
+      <div class="line"><span>Envío</span><span>Gratis</span></div>
+      <div class="total"><span>Total</span><span>$659,960</span></div>
+      <div class="actions-inline">
+        <button class="btn btn-confirm" type="button">Confirmar compra</button>
+        <button class="btn btn-cancel" type="button">Cancelar</button>
+      </div>
+  </section>
+</main>
+</body>
+</html>

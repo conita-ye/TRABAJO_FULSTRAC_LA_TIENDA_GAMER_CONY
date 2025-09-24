@@ -1,234 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas de Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#000;
+            --panel:#111;
+            --txt:#fff;
+            --txt2:#d3d3d3;
+            --green:#39FF14;
+            --blue:#1E90FF;
+            --border:#1a1a1a;
+        }
 
-:root{
-  --bg:#000;
-  --panel:#111;
-  --txt:#fff;
-  --txt2:#d3d3d3;
-  --green:#39FF14;
-  --blue:#1E90FF;
-  --border:#1a1a1a;
-}
+        body{
+            background:var(--bg);
+            color:var(--txt);
+            font-family:"Roboto", Arial, sans-serif;
+            margin:0;
+        }
+        h1,h2,h3{
+            font-family:"Orbitron", sans-serif;
+        }
 
-body{ background:var(--bg); 
-    color:var(--txt); 
-    font-family:"Roboto", Arial, sans-serif; 
-    margin:0; 
-}
-h1,h2,h3{ font-family:"Orbitron", sans-serif; 
-}
+        .main-header{
+            background:var(--panel);
+            border-bottom:2px solid var(--green);
+        }
+        .header-flex{
+            display:flex;
+            align-items:center;
+            justify-content:flex-start;
+            gap:24px;
+            padding:16px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header-flex h1{
+            margin:0;
+            color:var(--green);
+            font-size:2rem;
+        }
+        .header-flex nav{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .header-flex a{
+            color:var(--txt2);
+            text-decoration:none;
+            font-weight:500;
+        }
+        .header-flex a:hover{
+            color:var(--green);
+        }
 
+        #reviews-page{
+            background:var(--panel);
+            border-radius:12px;
+            box-shadow:0 2px 16px rgba(57,255,20,.1);
+            max-width:1200px;
+            margin:32px auto;
+            padding:32px;
+        }
 
-.main-header{ background:var(--panel); 
-    border-bottom:2px solid var(--green); 
-}
-.header-flex{ display:flex; 
-    align-items:center; 
-    justify-content:flex-start; 
-    gap:24px; 
-    padding:16px 32px; 
-}
-.header-flex h1{ margin:0; 
-    color:var(--green); 
-    font-size:2rem; 
-}
-.header-flex nav{ display:flex; 
-    align-items:center; 
-    gap:12px; 
-}
-.header-flex a{ color:var(--txt2); 
-    text-decoration:none; 
-    font-weight:500; 
-}
-.header-flex a:hover{ color:var(--green); 
-}
+        .summary{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:12px;
+            margin-bottom:8px;
+        }
+        .summary h2{
+            margin:0;
+        }
+        .summary .score{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        .summary .rating-number{
+            color:var(--blue);
+            font-weight:700;
+        }
+        .summary .count{
+            color:var(--txt2);
+        }
+        .stars{
+            display:inline-flex;
+            gap:4px;
+        }
+        .star{
+            position:relative;
+            display:inline-block;
+            width:1.1em;
+            height:1.1em;
+        }
+        .star::before{
+            content:"★";
+            color:#2c2c2c;
+            font-size:1.1em;
+            line-height:1;
+        }
+        .star.full::before{
+            color:var(--green);
+        }
+        .star.empty::before{
+            color:#2c2c2c;
+        }
+        .star.half::before{
+            color:#2c2c2c;
+        }
+        .star.half::after{
+            content:"★";
+            color:var(--green);
+            position:absolute;
+            left:0;
+            top:0;
+            width:50%;
+            overflow:hidden;
+        }
 
+        .toolbar{
+            margin:10px 0 16px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        .toolbar label{
+            color:var(--green);
+        }
+        .toolbar select{
+            background:var(--bg);
+            color:var(--txt);
+            border:1px solid var(--green);
+            border-radius:6px;
+            padding:6px 10px;
+        }
 
-#reviews-page{
-  background:var(--panel);
-  border-radius:12px;
-  box-shadow:0 2px 16px rgba(57,255,20,.1);
-  max-width:1200px; margin:32px auto; padding:32px;
-}
+        .review-list{
+            display:grid;
+            gap:16px;
+            margin-bottom:24px;
+        }
+        .review{
+            background:#0f0f10;
+            border:1px solid var(--border);
+            border-radius:12px;
+            padding:16px;
+        }
+        .review-top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:6px;
+        }
+        .review-top strong{
+            color:var(--txt);
+        }
+        .review-top .date{
+            color:var(--txt2);
+            font-size:.9rem;
+        }
+        .review-stars{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            margin-bottom:8px;
+        }
+        .review p{
+            color:var(--txt2);
+            margin:0;
+            line-height:1.5;
+        }
 
+        .write h3{
+            margin:0 0 10px;
+            color:var(--green);
+        }
+        .write form{
+            display:grid;
+            gap:12px;
+        }
+        .row label{
+            display:block;
+            color:var(--txt2);
+            margin-bottom:6px;
+        }
+        input, textarea, select{
+            width:100%;
+            padding:10px;
+            background:var(--bg);
+            color:var(--txt);
+            border:1px solid var(--green);
+            border-radius:8px;
+        }
+        textarea{
+            resize:vertical;
+        }
 
-.summary{ display:flex; 
-    align-items:center; 
-    justify-content:space-between; 
-    flex-wrap:wrap; gap:12px; 
-    margin-bottom:8px; 
-}
-.summary h2{ margin:0; }
-.summary .score{ display:flex; 
-    align-items:center; 
-    gap:10px; 
-}
-.summary .rating-number{ color:var(--blue); 
-    font-weight:700; 
-}
-.summary .count{ color:var(--txt2); 
-}
-.stars{ display:inline-flex; 
-    gap:4px; 
-}
-.star{ position:relative; 
-    display:inline-block; 
-    width:1.1em; 
-    height:1.1em; 
-}
-.star::before{ content:"★"; 
-    color:#2c2c2c; 
-    font-size:1.1em; 
-    line-height:1; 
-}
-.star.full::before{ color:var(--green); 
-}
-.star.empty::before{ color:#2c2c2c; 
-}
-.star.half::before{ color:#2c2c2c; 
-}
-.star.half::after{ content:"★"; 
-    color:var(--green); 
-    position:absolute; 
-    left:0; 
-    top:0; 
-    width:50%; 
-    overflow:hidden; 
-}
+        .rating-input{
+            display:flex;
+            flex-direction:row-reverse;
+            gap:6px;
+        }
+        .rating-input input{
+            display:none;
+        }
+        .rating-input label{
+            font-size:1.6rem;
+            line-height:1;
+            cursor:pointer;
+            color:#2c2c2c;
+            user-select:none;
+        }
+        .rating-input label:hover,
+        .rating-input label:hover ~ label{
+            color:var(--green);
+        }
+        .rating-input input:checked ~ label{
+            color:var(--green);
+        }
 
-.toolbar{ margin:10px 0 16px; 
-    display:flex; 
-    align-items:center; 
-    gap:10px; 
-}
-.toolbar label{ color:var(--green); }
-.toolbar select{
-  background:var(--bg); 
-  color:var(--txt); 
-  border:1px solid var(--green);
-  border-radius:6px; 
-  padding:6px 10px;
-}
+        .btn{
+            appearance:none;
+            border:none;
+            cursor:pointer;
+            font-weight:700;
+            border-radius:10px;
+        }
+        .btn-primary{
+            background:var(--green);
+            color:#000;
+            padding:12px 14px;
+            width:100%;
+            transition:background .2s;
+        }
+        .btn-primary:hover{
+            background:var(--blue);
+            color:#fff;
+        }
 
-.review-list{ display:grid; 
-    gap:16px; 
-    margin-bottom:24px; 
-}
-.review{
-  background:#0f0f10; 
-  border:1px solid var(--border); 
-  border-radius:12px;
-  padding:16px;
-}
-.review-top{ display:flex; 
-    justify-content:space-between; 
-    align-items:center; 
-    margin-bottom:6px; 
-}
-.review-top strong{ color:var(--txt); }
-.review-top .date{ color:var(--txt2); 
-    font-size:.9rem; 
-}
-.review-stars{ display:flex; 
-    align-items:center; 
-    gap:8px; 
-    margin-bottom:8px; 
-}
-.review p{ color:var(--txt2); 
-    margin:0; 
-    line-height:1.5; 
-}
+        .site-footer{
+            text-align:center;
+            color:var(--txt2);
+            padding:18px 0;
+            border-top:1px solid var(--border);
+            margin-top:24px;
+        }
 
-.write h3{ margin:0 0 10px; 
-    color:var(--green); 
-}
-.write form{ display:grid; 
-    gap:12px; 
-}
-.row label{ display:block; 
-    color:var(--txt2); 
-    margin-bottom:6px; 
-}
-input, textarea, select{
-  width:100%; 
-  padding:10px; 
-  background:var(--bg); 
-  color:var(--txt);
-  border:1px solid var(--green); 
-  border-radius:8px;
-}
-textarea{ resize:vertical; }
+        .subheading{
+            margin: 4px 0 0;
+            color: #d3d3d3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-.rating-input{ display:flex; 
-    flex-direction:row-reverse; 
-    gap:6px; 
-}
-.rating-input input{ display:none; }
-.rating-input label{
-  font-size:1.6rem; 
-  line-height:1; 
-  cursor:pointer; 
-  color:#2c2c2c; 
-  user-select:none;
-}
-.rating-input label:hover,
-.rating-input label:hover ~ label{ color:var(--green); }
-.rating-input input:checked ~ label{ color:var(--green); }
+        .pill{
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(57,255,20,.12);
+            border: 1px solid rgba(57,255,20,.35);
+            color: #9BFFA5;
+            font-weight: 700;
+        }
 
-.btn{ appearance:none; 
-    border:none; 
-    cursor:pointer; 
-    font-weight:700; 
-    border-radius:10px; 
-}
-.btn-primary{
-  background:var(--green); 
-  color:#000; 
-  padding:12px 14px; 
-  width:100%;
-  transition:background .2s;
-}
-.btn-primary:hover{ background:var(--blue); 
-    color:#fff; 
-}
+        .product{
+            color: #39FF14;
+        }
+        .category a{
+            color: #39FF14;
+            text-decoration: underline;
+        }
+        .category a:hover{
+            color: #1E90FF;
+        }
 
-.site-footer{
-  text-align:center; 
-  color:var(--txt2); 
-  padding:18px 0;
-  border-top:1px solid var(--border); 
-  margin-top:24px;
-}
+        .sep{
+            color: #1a1a1a;
+            margin: 0 2px;
+        }
 
-.subheading{
-  margin: 4px 0 0;
-  color: #d3d3d3;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+        @media (max-width: 680px){
+            .header-flex{ padding:12px 16px; gap:16px; flex-wrap:wrap; }
+            #reviews-page{ padding:16px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-flex">
+            <h1>La Tienda Gamer de cony</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Productos</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Blogs</a>
+                <a href="#">Contacto</a>
+                <a href="#">Carrito (4)</a>
+            </nav>
+        </div>
+    </header>
 
-.pill{
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: rgba(57,255,20,.12);
-  border: 1px solid rgba(57,255,20,.35);
-  color: #9BFFA5;
-  font-weight: 700;
-}
+    <main id="reviews-page">
+        <section class="summary">
+            <h2>Reseñas de Productos</h2>
+            <div class="score">
+                <span class="rating-number">4.5</span>
+                <div class="stars" aria-label="Valoración 4.5 de 5">
+                    <span class="star full"></span>
+                    <span class="star full"></span>
+                    <span class="star full"></span>
+                    <span class="star full"></span>
+                    <span class="star half"></span>
+                </div>
+                <span class="count">(24 reseñas)</span>
+            </div>
+        </section>
 
-.product{ color: #39FF14; }      
-.category a{
-  color: #39FF14;
-  text-decoration: underline;
-}
-.category a:hover{ color: #1E90FF; }
+        <section class="toolbar">
+            <label for="sort-by">Clasificar por:</label>
+            <select id="sort-by">
+                <option value="recent">Más recientes</option>
+                <option value="top">Mejor calificados</option>
+                <option value="low">Peor calificados</option>
+            </select>
+        </section>
 
-.sep{ color: #1a1a1a; margin: 0 2px; }  
+        <section class="review-list">
+            <article class="review">
+                <div class="review-top">
+                    <strong>Antonia</strong>
+                    <span class="date">3 de septiembre, 2025</span>
+                </div>
+                <div class="review-stars">
+                    <div class="stars" aria-label="Valoración 5 de 5">
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                    </div>
+                </div>
+                <p>Excelente calidad, se siente sólido. Los materiales son de primera y el diseño es justo lo que buscaba para mi setup.</p>
+                <div class="subheading">
+                    <span class="pill">Juego de mesa</span>
+                    <span class="sep">|</span>
+                    <span class="product">Catan</span>
+                </div>
+            </article>
 
+            <article class="review">
+                <div class="review-top">
+                    <strong>Alexis</strong>
+                    <span class="date">1 de septiembre, 2025</span>
+                </div>
+                <div class="review-stars">
+                    <div class="stars" aria-label="Valoración 4 de 5">
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star empty"></span>
+                    </div>
+                </div>
+                <p>Llegó rápido, funciona perfecto con mi setup. La instalación fue muy sencilla y no he tenido ningún problema hasta ahora.</p>
+                <div class="subheading">
+                    <span class="pill">Mouse</span>
+                    <span class="sep">|</span>
+                    <span class="product">Mouse RGB</span>
+                </div>
+            </article>
+        </section>
 
-@media (max-width: 680px){
-  .header-flex{ padding:12px 16px; gap:16px; flex-wrap:wrap; }
-  #reviews-page{ padding:16px; }
-}
+        <section class="write">
+            <h3>Deja tu reseña</h3>
+            <form action="#" method="post">
+                <div class="row">
+                    <label for="name">Tu nombre</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="row">
+                    <label>Tu calificación</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="review-text">Tu reseña</label>
+                    <textarea id="review-text" name="review" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Reseña</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        &copy; 2022 La Tienda Gamer de cony
+    </footer>
+</body>
+</html>
